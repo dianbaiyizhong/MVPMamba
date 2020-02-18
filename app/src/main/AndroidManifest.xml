@@ -3,6 +3,7 @@
     package="com.zhenmei.p7i.mvpmamba">
 
     <application
+        android:name=".BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,6 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity android:name=".mvp.view.UserActivity"></activity>
     </application>
 
 </manifest>

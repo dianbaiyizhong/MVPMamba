@@ -1,8 +1,11 @@
 package com.zhenmei.p7i.core.mvp;
 
+import com.blankj.utilcode.util.GsonUtils;
+import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.zhenmei.p7i.core.net.base.RetrofitServiceManager;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,6 +17,23 @@ import okhttp3.RequestBody;
 
 public class BaseModel {
     public BaseModel() {
+    }
+
+    protected static Map<String, String> bean2Map(Object o) {
+        String s1 = GsonUtils.toJson(o, false);
+
+        Map<String, String> map2 = GsonUtils.fromJson(s1,
+                new TypeToken<Map<String, String>>() {
+                }.getType());
+
+
+        if (map2 == null) {
+            return Collections.emptyMap();
+        } else {
+            return map2;
+
+        }
+
     }
 
     protected static RequestBody generateRequestBody(Object object) {

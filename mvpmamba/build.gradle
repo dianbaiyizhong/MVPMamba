@@ -4,7 +4,7 @@ apply plugin: 'maven'
 uploadArchives {
     repositories {
         mavenDeployer {
-            pom.artifactId = 'android-core'
+            pom.artifactId = 'MVPMamba'
             pom.groupId = 'com.zhenmei.p7i'
             repository(url: 'file:///D:/p7i-android-library')
             pom.version = "1.0.0"
@@ -94,13 +94,14 @@ dependencies {
 
 
     api rootProject.ext.dependencies["rxpermissions"]
-    compileOnly rootProject.ext.dependencies["logger"]
-    compileOnly rootProject.ext.dependencies["utilcodex"]
-    compileOnly rootProject.ext.dependencies["fastjson"]
-    compileOnly rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["logger"]
+    api rootProject.ext.dependencies["utilcodex"]
+    api rootProject.ext.dependencies["fastjson"]
+    api rootProject.ext.dependencies["commons-lang"]
+    api rootProject.ext.dependencies["guava"]
 
 
-    compileOnly rootProject.ext.dependencies["butterknife"]
+    api rootProject.ext.dependencies["butterknife"]
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 
 

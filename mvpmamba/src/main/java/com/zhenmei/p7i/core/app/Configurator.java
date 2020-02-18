@@ -82,7 +82,8 @@ public final class Configurator {
         checkConfiguration();
         final Object value = P7I_CONFIGS.get(key);
         if (value == null) {
-            throw new NullPointerException(key.toString() + " IS NULL");
+            //throw new NullPointerException(key.toString() + " IS NULL");
+            return null;
         }
         return (T) P7I_CONFIGS.get(key);
     }
