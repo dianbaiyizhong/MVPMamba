@@ -40,7 +40,7 @@ dependencies {
     implementation project(':mvpmamba')
 
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
-    annotationProcessor "com.google.dagger:dagger-compiler:2.23.2"
 
+    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
 
 }
