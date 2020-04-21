@@ -1,5 +1,6 @@
 package com.zhenmei.p7i.core.mvp;
 
+import com.alibaba.fastjson.JSON;
 import com.blankj.utilcode.util.GsonUtils;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
@@ -20,7 +21,7 @@ public class BaseModel {
     }
 
     protected static Map<String, String> bean2Map(Object o) {
-        String s1 = GsonUtils.toJson(o, false);
+        String s1 = JSON.toJSONString(o);
 
         Map<String, String> map2 = GsonUtils.fromJson(s1,
                 new TypeToken<Map<String, String>>() {

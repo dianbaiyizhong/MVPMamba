@@ -7,7 +7,7 @@ uploadArchives {
             pom.artifactId = 'MVPMamba'
             pom.groupId = 'com.zhenmei.p7i'
             repository(url: 'file:///D:/p7i-android-library')
-            pom.version = "1.0.0"
+            pom.version = "1.0.4"
         }
     }
 }
@@ -104,5 +104,6 @@ dependencies {
     api rootProject.ext.dependencies["butterknife"]
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 
+    implementation 'me.jessyan:retrofit-url-manager:1.4.0'
 
 }

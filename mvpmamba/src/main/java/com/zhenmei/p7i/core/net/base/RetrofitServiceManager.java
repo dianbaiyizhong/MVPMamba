@@ -22,6 +22,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
+import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -57,8 +58,8 @@ public class RetrofitServiceManager {
 
 
         // 创建 OKHttpClient
-        OkHttpClient.Builder builder = new OkHttpClient.Builder();
-
+        // OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        OkHttpClient.Builder builder = RetrofitUrlManager.getInstance().with(new OkHttpClient.Builder());
         //配置ssl
         builder.sslSocketFactory(sslContext.getSocketFactory(), trustManager)
                 .hostnameVerifier((hostname, session) -> true);

@@ -51,6 +51,8 @@ import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 
 public class ViewPagerBottomSheetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
 
+    public final static Integer NO_BOTTOMSHEET = 1;
+
     public void invalidateScrollingChild() {
         final View scrollingChild = findScrollingChild((View) viewRef.get());
 
@@ -64,6 +66,9 @@ public class ViewPagerBottomSheetBehavior<V extends View> extends CoordinatorLay
             return null;
         }
         if (ViewCompat.isNestedScrollingEnabled(view)) {
+            if (view.getTag() == NO_BOTTOMSHEET) {
+                return null;
+            }
             return view;
         }
         if (view instanceof ViewPager) {

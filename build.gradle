@@ -8,7 +8,7 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.0-rc03'
+        classpath 'com.android.tools.build:gradle:3.6.1'
         classpath('com.jakewharton:butterknife-gradle-plugin:10.2.1')
 
 
@@ -33,7 +33,7 @@ task clean(type: Delete) {
 ext {
     dependencies = [
             "BaseRecyclerViewAdapterHelper": "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.0-beta11",
-            "utilcodex"                    : "com.blankj:utilcodex:1.26.0",
+            "utilcodex"                    : "com.blankj:utilcodex:1.28.0",
             "commons-lang"                 : "org.apache.commons:commons-lang3:3.8",
             "lombok"                       : "org.projectlombok:lombok:1.16.8",
             "javax.annotation-api"         : "javax.annotation:javax.annotation-api:1.2",
