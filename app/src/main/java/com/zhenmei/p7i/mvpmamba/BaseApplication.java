@@ -34,7 +34,7 @@ public class BaseApplication extends MVPApplication {
 
 
         FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
-                .tag("p7i")
+                .tag("p7i-log")
                 .build();
         Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
 

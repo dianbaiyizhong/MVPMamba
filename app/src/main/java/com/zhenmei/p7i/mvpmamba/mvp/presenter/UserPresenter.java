@@ -5,7 +5,8 @@ import android.content.Context;
 import com.orhanobut.logger.Logger;
 import com.zhenmei.p7i.core.mvp.BasePresenter;
 import com.zhenmei.p7i.core.utils.RxLifecycleUtils;
-import com.zhenmei.p7i.mvpmamba.ErrorHandleSubscriber;
+import com.zhenmei.p7i.mvpmamba.net.P7IHandlerSubscriber;
+import com.zhenmei.p7i.mvpmamba.net.P7ISecondHandleSubscriber;
 import com.zhenmei.p7i.mvpmamba.mvp.contract.UserContract;
 import com.zhenmei.p7i.mvpmamba.mvp.entity.UserEntity;
 import com.zhenmei.p7i.mvpmamba.mvp.model.api.subject.CommonListSubject;
@@ -40,13 +41,18 @@ public class UserPresenter extends BasePresenter<UserContract.Model, UserContrac
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(RxLifecycleUtils.bindToLifecycle(mView))
-                .subscribe(new ErrorHandleSubscriber<CommonListSubject<UserEntity>>(context) {
+                .subscribe(new P7IHandlerSubscriber<CommonListSubject<UserEntity>>(context) {
                     @Override
                     public void onNext(CommonListSubject<UserEntity> subject) {
 
                         Logger.i(subject.rows.size() + "");
                     }
 
+
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                    }
                 });
 
 
