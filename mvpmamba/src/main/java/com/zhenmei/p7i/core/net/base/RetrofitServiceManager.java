@@ -114,6 +114,8 @@ public class RetrofitServiceManager {
      * @return
      */
     public static RetrofitServiceManager getInstance() {
+
+
         return SingletonHolder.INSTANCE;
     }
 

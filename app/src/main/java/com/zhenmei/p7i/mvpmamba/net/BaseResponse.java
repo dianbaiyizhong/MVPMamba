@@ -1,4 +1,4 @@
-package com.zhenmei.p7i.core.net.base;
+package com.zhenmei.p7i.mvpmamba.net;
 
 import java.io.Serializable;
 

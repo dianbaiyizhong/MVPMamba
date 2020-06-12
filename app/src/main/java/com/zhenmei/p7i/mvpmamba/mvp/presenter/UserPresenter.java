@@ -52,6 +52,7 @@ public class UserPresenter extends BasePresenter<UserContract.Model, UserContrac
                     @Override
                     public void onError(Throwable e) {
                         super.onError(e);
+                        e.printStackTrace();
                     }
                 });
 

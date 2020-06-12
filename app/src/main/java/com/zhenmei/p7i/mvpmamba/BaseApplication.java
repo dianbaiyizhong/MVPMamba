@@ -26,9 +26,8 @@ public class BaseApplication extends MVPApplication {
         });
 
         P7I.init(this)
-                .withApiHost("https://192.168.88.200/rest/api/")
+                .withApiHost("https://aliyun001.p7ik4n.com:8082/rest/api/")
                 .withInterceptor(new TokenInterceptor())
-
                 .withLoaderDelayed(1000)
                 .configure();
 

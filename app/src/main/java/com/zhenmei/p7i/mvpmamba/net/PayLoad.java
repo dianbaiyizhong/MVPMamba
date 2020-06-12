@@ -1,7 +1,5 @@
 package com.zhenmei.p7i.mvpmamba.net;
 
-import com.zhenmei.p7i.core.net.base.BaseResponse;
-
 import io.reactivex.functions.Function;
 
 /**
