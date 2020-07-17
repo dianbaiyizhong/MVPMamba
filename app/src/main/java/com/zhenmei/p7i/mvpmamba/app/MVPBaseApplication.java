@@ -1,4 +1,4 @@
-package com.zhenmei.p7i.core.application;
+package com.zhenmei.p7i.mvpmamba.app;
 
 import android.app.Application;
 

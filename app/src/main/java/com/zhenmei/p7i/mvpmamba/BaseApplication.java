@@ -1,12 +1,11 @@
 package com.zhenmei.p7i.mvpmamba;
 
-import com.blankj.utilcode.util.SPStaticUtils;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 import com.zhenmei.p7i.core.app.P7I;
-import com.zhenmei.p7i.core.application.MVPApplication;
+import com.zhenmei.p7i.mvpmamba.app.MVPApplication;
 
 import io.reactivex.functions.Consumer;
 import io.reactivex.plugins.RxJavaPlugins;

@@ -3,10 +3,9 @@ package com.zhenmei.p7i.mvpmamba;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.zhenmei.p7i.core.activity.BaseActivity;
-import com.zhenmei.p7i.core.application.MVPApplication;
+import com.zhenmei.p7i.mvpmamba.app.MVPApplication;
 import com.zhenmei.p7i.core.di.component.AppComponent;
 import com.zhenmei.p7i.core.mvp.BasePresenter;
 import com.zhenmei.p7i.core.mvp.IView;

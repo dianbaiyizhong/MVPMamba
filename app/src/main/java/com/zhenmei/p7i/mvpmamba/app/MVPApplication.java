@@ -1,4 +1,4 @@
-package com.zhenmei.p7i.core.application;
+package com.zhenmei.p7i.mvpmamba.app;
 
 import com.zhenmei.p7i.core.di.component.AppComponent;
 import com.zhenmei.p7i.core.di.component.DaggerAppComponent;
