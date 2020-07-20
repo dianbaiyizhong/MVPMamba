@@ -1,4 +1,4 @@
-package com.zhenmei.p7i.core.activity;
+package com.zhenmei.p7i.mvpmamba.utils;
 
 import android.app.Activity;
 import android.content.Context;

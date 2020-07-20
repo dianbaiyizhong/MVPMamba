@@ -1,7 +1,7 @@
 package com.zhenmei.p7i.core.net.base;
 
 import com.zhenmei.p7i.core.app.ConfigKeys;
-import com.zhenmei.p7i.core.app.P7I;
+import com.zhenmei.p7i.core.app.ManBaNetBuilder;
 
 import java.util.concurrent.TimeUnit;
 
@@ -25,7 +25,7 @@ public class CommonRetrofitServiceManager {
                 .readTimeout(DEFAULT_READ_TIME, TimeUnit.SECONDS)//设置读操作超时时间
                 .build();
 
-        String BASE_URL = P7I.getConfiguration(ConfigKeys.API_HOST);
+        String BASE_URL = ManBaNetBuilder.getConfiguration(ConfigKeys.API_HOST);
 
         retrofit = new Retrofit.Builder()
                 .client(okHttpClient)//设置使用okhttp网络请求

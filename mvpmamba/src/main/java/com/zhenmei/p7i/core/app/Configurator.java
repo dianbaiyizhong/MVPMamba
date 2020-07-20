@@ -88,10 +88,10 @@ public final class Configurator {
         return (T) P7I_CONFIGS.get(key);
     }
 
-    public final Configurator withLoaderDelayed(long delayed) {
-        P7I_CONFIGS.put(ConfigKeys.LOADER_DELAYED, delayed);
-        return this;
-    }
+//    public final Configurator withLoaderDelayed(long delayed) {
+//        P7I_CONFIGS.put(ConfigKeys.LOADER_DELAYED, delayed);
+//        return this;
+//    }
 
 
     public final Configurator withActivity(Activity activity) {

@@ -1,4 +1,4 @@
-package com.zhenmei.p7i.core.utils;
+package com.zhenmei.p7i.mvpmamba.utils;
 
 import android.view.View;
 
@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.blankj.utilcode.util.ActivityUtils;
+import com.zhenmei.p7i.core.utils.LifeCycleHolder;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

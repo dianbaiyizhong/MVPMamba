@@ -3,7 +3,7 @@ package com.zhenmei.p7i.core.app;
 import android.content.Context;
 import android.os.Handler;
 
-public final class P7I {
+public final class ManBaNetBuilder {
 
     public static Configurator init(Context context) {
         Configurator.getInstance().getP7IConfigs()

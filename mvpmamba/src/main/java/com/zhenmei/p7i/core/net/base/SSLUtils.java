@@ -1,9 +1,11 @@
 package com.zhenmei.p7i.core.net.base;
 
+import android.content.Context;
 import android.content.res.AssetManager;
 import android.util.Log;
 
-import com.blankj.utilcode.util.Utils;
+import com.zhenmei.p7i.core.app.ConfigKeys;
+import com.zhenmei.p7i.core.app.ManBaNetBuilder;
 
 import java.io.InputStream;
 import java.security.KeyStore;
@@ -21,7 +23,8 @@ public class SSLUtils {
     private static KeyStore getKeyStore(String fileName) {
         KeyStore keyStore = null;
         try {
-            AssetManager assetManager = Utils.getApp().getAssets();
+
+            AssetManager assetManager = ((Context) ManBaNetBuilder.getConfiguration(ConfigKeys.APPLICATION_CONTEXT)).getAssets();
             CertificateFactory cf = CertificateFactory.getInstance("X.509");
             InputStream caInput = assetManager.open(fileName);
             Certificate ca;

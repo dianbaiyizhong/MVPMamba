@@ -39,8 +39,20 @@ dependencies {
 
     implementation project(':mvpmamba')
 
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    implementation rootProject.ext.dependencies["material"]
 
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
+
+    implementation rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+
+    implementation rootProject.ext.dependencies["logger"]
+
+    implementation rootProject.ext.dependencies["eventbus"]
+
+
+    implementation rootProject.ext.dependencies["utilcodex"]
+
+    implementation rootProject.ext.dependencies["fastjson"]
 
 }

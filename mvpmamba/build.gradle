@@ -13,12 +13,12 @@ uploadArchives {
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -55,22 +55,13 @@ android {
 dependencies {
 
     implementation rootProject.ext.dependencies["appcompat"]
-    implementation rootProject.ext.dependencies["recyclerview"]
-    implementation rootProject.ext.dependencies["constraintlayout"]
 
-    api rootProject.ext.dependencies["material"]
-
-
-    // 基础依赖包，必须要依赖
-    api 'com.gyf.immersionbar:immersionbar:3.0.0'
 
     //网络请求框架
     api 'com.squareup.retrofit2:retrofit:2.3.0'
-    api rootProject.ext.dependencies["gson"]
     api rootProject.ext.dependencies["rxandroid"]
     api 'com.squareup.retrofit2:converter-gson:2.3.0'
     api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    api 'com.jakewharton.rxbinding3:rxbinding-core:3.0.0-alpha2'
 
 
     api 'com.trello.rxlifecycle2:rxlifecycle:2.2.2'
@@ -80,10 +71,6 @@ dependencies {
     api 'me.jessyan:rxerrorhandler:2.1.1'
 
 
-    //eventbus
-    api rootProject.ext.dependencies["eventbus"]
-
-
     api rootProject.ext.dependencies["dagger"]
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
     implementation 'com.github.VictorAlbertos.Jolyglot:gson:0.0.4'
@@ -91,18 +78,6 @@ dependencies {
     api('com.github.VictorAlbertos.RxCache:runtime:1.8.3-2.x') {
         exclude group: 'org.glassfish'
     }
-
-
-    api rootProject.ext.dependencies["rxpermissions"]
-    api rootProject.ext.dependencies["logger"]
-    api rootProject.ext.dependencies["utilcodex"]
-    api rootProject.ext.dependencies["fastjson"]
-    api rootProject.ext.dependencies["commons-lang"]
-    api rootProject.ext.dependencies["guava"]
-
-
-    api rootProject.ext.dependencies["butterknife"]
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 
     implementation 'me.jessyan:retrofit-url-manager:1.4.0'
 

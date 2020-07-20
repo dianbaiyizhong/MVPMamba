@@ -1,12 +1,10 @@
 package com.zhenmei.p7i.core.net.base;
 
 
-import android.util.Log;
-
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializer;
 import com.zhenmei.p7i.core.app.ConfigKeys;
-import com.zhenmei.p7i.core.app.P7I;
+import com.zhenmei.p7i.core.app.ManBaNetBuilder;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -31,11 +29,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class RetrofitServiceManager {
-    private static final int DEFAULT_TIME_OUT = 5;//超时时间 5s
+    private static final int DEFAULT_TIME_OUT = 10;//超时时间 5s
     private static final int DEFAULT_READ_TIME_OUT = 10;
     private Retrofit mRetrofit;
-    private static final ArrayList<Interceptor> INTERCEPTORS = P7I.getConfiguration(ConfigKeys.INTERCEPTOR);
-    private static final ArrayList<JsonDeserializer> JSON_DESERIALIZER = P7I.getConfiguration(ConfigKeys.JSON_DESERIALIZER);
+    private static final ArrayList<Interceptor> INTERCEPTORS = ManBaNetBuilder.getConfiguration(ConfigKeys.INTERCEPTOR);
+    private static final ArrayList<JsonDeserializer> JSON_DESERIALIZER = ManBaNetBuilder.getConfiguration(ConfigKeys.JSON_DESERIALIZER);
 
     private RetrofitServiceManager() {
 
@@ -85,7 +83,7 @@ public class RetrofitServiceManager {
             }
         }
 
-        String BASE_URL = P7I.getConfiguration(ConfigKeys.API_HOST);
+        String BASE_URL = ManBaNetBuilder.getConfiguration(ConfigKeys.API_HOST);
 
 
         // 创建Retrofit
