@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/mvpmamba/src/main/java/com/zhenmei/p7i/core/activity/BaseMVPActivity.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/mvpmamba/src/main/java/com/zhenmei/p7i/core/activity/LifecycleActivity.java" charset="GBK" />
-  </component>
-</project>
