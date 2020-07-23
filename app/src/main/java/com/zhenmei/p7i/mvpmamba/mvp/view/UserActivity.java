@@ -4,44 +4,33 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.orhanobut.logger.Logger;
-import com.zhenmei.p7i.core.net.base.CommonRetrofitServiceManager;
 import com.zhenmei.p7i.mvpmamba.activity.MyActivity;
+import com.zhenmei.p7i.mvpmamba.di.ActivityComponent;
 import com.zhenmei.p7i.mvpmamba.mvp.contract.UserContract;
-import com.zhenmei.p7i.mvpmamba.mvp.model.api.service.UserService;
 import com.zhenmei.p7i.mvpmamba.mvp.presenter.UserPresenter;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import dagger.android.AndroidInjection;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 
 public class UserActivity extends MyActivity<UserPresenter> implements UserContract.MView {
-//    @Inject
-//    UserPresenter mPresenter;
-
-
-//    @Override
-//    protected void componentInject(AppComponent appComponent) {
-//        DaggerActivityComponent.builder().appComponent(appComponent)
-//                .activityModule(new ActivityModule(this, this)).build()
-//                .inject(this);
-//    }
-
-//    @Override
-//    protected void componentInject(AppComponent appComponent) {
-//        DaggerActivityComponent.builder().appComponent(appComponent).activityModule(new ActivityModule(this, this)).build().inject(this);
-//
-//    }
 
 
     @Override
+    public void loadSuccess() {
+
+
+    }
+
+
+    @Override
+    protected void initInject(ActivityComponent activityComponent) {
+        activityComponent.inject(this);
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
+
+
+        mPresenter.getUser();
 
 
 //        Map<String, String> map = new HashMap<>();
@@ -61,13 +50,15 @@ public class UserActivity extends MyActivity<UserPresenter> implements UserContr
 //                }, throwable -> {
 //
 //                });
+    }
 
-        mPresenter.getUser();
+    @Override
+    public void loadPageError(Throwable throwable) {
 
     }
 
     @Override
-    public void loadSuccess() {
+    public void hideLoadingTip() {
 
     }
 }
