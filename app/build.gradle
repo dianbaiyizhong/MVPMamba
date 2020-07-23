@@ -41,8 +41,9 @@ dependencies {
 
     implementation rootProject.ext.dependencies["material"]
 
-    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
-
+//    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.16'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.16'
     implementation rootProject.ext.dependencies["butterknife"]
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 

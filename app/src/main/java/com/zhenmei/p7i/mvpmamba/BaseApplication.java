@@ -1,16 +1,26 @@
 package com.zhenmei.p7i.mvpmamba;
 
+import android.app.Activity;
+import android.app.Application;
+
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 import com.zhenmei.p7i.core.app.ManBaNetBuilder;
-import com.zhenmei.p7i.core.app.MVPApplication;
+import com.zhenmei.p7i.mvpmamba.di.DaggerAppComponent;
 
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
 import io.reactivex.functions.Consumer;
 import io.reactivex.plugins.RxJavaPlugins;
 
-public class BaseApplication extends MVPApplication {
+public class BaseApplication extends Application implements HasActivityInjector {
+    @Inject
+    DispatchingAndroidInjector<Activity> dispatchingAndroidInjector;
 
     @Override
     public void onCreate() {
@@ -33,5 +43,15 @@ public class BaseApplication extends MVPApplication {
                 .build();
         Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
 
+        DaggerAppComponent
+                .builder()
+                .application(this)
+                .build()
+                .inject(this);
+    }
+
+    @Override
+    public AndroidInjector<Activity> activityInjector() {
+        return dispatchingAndroidInjector;
     }
 }

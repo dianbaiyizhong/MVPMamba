@@ -4,8 +4,9 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.zhenmei.p7i.core.di.component.AppComponent;
 import com.zhenmei.p7i.core.mvp.BasePresenter;
+
+import dagger.android.AndroidInjection;
 
 public abstract class FMVPActivity<P extends BasePresenter> extends BaseMVPActivity {
 
@@ -16,13 +17,14 @@ public abstract class FMVPActivity<P extends BasePresenter> extends BaseMVPActiv
         return true;
     }
 
-    @Override
-    protected void componentInject(AppComponent appComponent) {
-
-    }
+//    @Override
+//    protected void componentInject(AppComponent appComponent) {
+//
+//    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
     }
 }

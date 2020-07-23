@@ -4,15 +4,15 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.zhenmei.p7i.core.app.MVPApplication;
-import com.zhenmei.p7i.core.di.component.AppComponent;
 import com.zhenmei.p7i.core.mvp.BasePresenter;
 import com.zhenmei.p7i.core.mvp.IView;
 
-abstract class BaseMVPActivity<P extends BasePresenter> extends LifecycleActivity implements IView {
+import dagger.android.AndroidInjection;
+
+public abstract class BaseMVPActivity<P extends BasePresenter> extends LifecycleActivity {
 
 
-    protected abstract void componentInject(AppComponent appComponent);
+//    protected abstract void componentInject(AppComponent appComponent);
 
     protected abstract boolean enableInject();
 
@@ -20,7 +20,9 @@ abstract class BaseMVPActivity<P extends BasePresenter> extends LifecycleActivit
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         if (enableInject()) {
             //设置布局
-            componentInject(((MVPApplication) getApplication()).getAppComponent());//依赖注入
+//            AndroidInjection.inject(this);
+
+//            componentInject(((MVPApplication) getApplication()).getAppComponent());//依赖注入
         }
         super.onCreate(savedInstanceState);
 
