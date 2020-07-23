@@ -1,5 +1,9 @@
 package com.zhenmei.p7i.core.mvp;
 
+import android.content.Context;
+
+import javax.inject.Inject;
+
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
@@ -21,22 +25,23 @@ public class BasePresenter<M extends IModel, V extends IView> extends BasePaging
     protected M mModel;
     protected V mView;
 
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    protected Context context;
+
     public BasePresenter() {
     }
 
-    //    @Inject
-    public BasePresenter(M model, V mView) {
+    public BasePresenter(M model) {
         this.mModel = model;
+
+    }
+
+    public void attachView(V mView) {
         this.mView = mView;
-    }
 
-
-    public M getmModel() {
-        return mModel;
-    }
-
-    public V getmView() {
-        return mView;
     }
 
 

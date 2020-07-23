@@ -15,6 +15,8 @@
  */
 package com.zhenmei.p7i.core.utils;
 
+import android.annotation.SuppressLint;
+
 import androidx.core.util.Preconditions;
 
 
@@ -39,7 +41,7 @@ import io.reactivex.annotations.NonNull;
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-
+@SuppressLint("RestrictedApi")
 public class RxLifecycleUtils {
 
     private RxLifecycleUtils() {

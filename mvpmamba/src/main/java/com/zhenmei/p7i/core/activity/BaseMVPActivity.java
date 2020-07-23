@@ -6,9 +6,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.zhenmei.p7i.core.mvp.BasePresenter;
-import com.zhenmei.p7i.core.mvp.IView;
 
-public abstract class BaseMVPActivity<P extends BasePresenter> extends AppCompatActivity implements IView {
+public abstract class BaseMVPActivity<P extends BasePresenter> extends AppCompatActivity {
 
 
     @Override

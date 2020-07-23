@@ -4,34 +4,22 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
+import com.blankj.utilcode.util.FragmentUtils;
+import com.zhenmei.p7i.mvpmamba.R;
 import com.zhenmei.p7i.mvpmamba.activity.MyActivity;
-import com.zhenmei.p7i.mvpmamba.di.ActivityComponent;
 import com.zhenmei.p7i.mvpmamba.mvp.contract.UserContract;
 import com.zhenmei.p7i.mvpmamba.mvp.presenter.UserPresenter;
-
 
 public class UserActivity extends MyActivity<UserPresenter> implements UserContract.MView {
 
 
     @Override
-    public void loadSuccess() {
-
-
-    }
-
-
-    @Override
-    protected void initInject(ActivityComponent activityComponent) {
-        activityComponent.inject(this);
-    }
-
-    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
 
-
-        mPresenter.getUser();
-
+        setContentView(R.layout.activity_main);
 
 //        Map<String, String> map = new HashMap<>();
 //
@@ -50,15 +38,24 @@ public class UserActivity extends MyActivity<UserPresenter> implements UserContr
 //                }, throwable -> {
 //
 //                });
+
+//        mPresenter.getUser();
+
+        FragmentUtils.add(getSupportFragmentManager(), new UserFragment(), R.id.container);
+
     }
 
     @Override
-    public void loadPageError(Throwable throwable) {
+    public void loadSuccess() {
 
     }
 
-    @Override
-    public void hideLoadingTip() {
-
-    }
+//    @Inject
+//    DispatchingAndroidInjector<Fragment> fragmentInjector;
+//
+//
+//    @Override
+//    public AndroidInjector<Fragment> supportFragmentInjector() {
+//        return fragmentInjector;
+//    }
 }
