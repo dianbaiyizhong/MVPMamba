@@ -2,16 +2,19 @@ package com.zhenmei.p7i.mvpmamba.mvp.contract;
 
 import com.zhenmei.p7i.core.mvp.IModel;
 import com.zhenmei.p7i.core.mvp.IView;
-import com.zhenmei.p7i.mvpmamba.mvp.entity.UserEntity;
+import com.zhenmei.p7i.mvpmamba.mvp.entity.WeatherEntity;
 import com.zhenmei.p7i.mvpmamba.mvp.model.api.subject.CommonListSubject;
 
-import io.reactivex.Observable;
+import java.util.Map;
 
-public interface UserContract {
+import io.reactivex.Observable;
+import retrofit2.http.QueryMap;
+
+public interface WeatherContract {
     interface Model extends IModel {
 
 
-        Observable<CommonListSubject<UserEntity>> getUser();
+        Observable<WeatherEntity> getWeather(@QueryMap Map<String, String> map);
 
     }
 

@@ -7,14 +7,14 @@ import java.io.Serializable;
  */
 
 public class BaseResponse<T> implements Serializable {
-    public int code;
-    public String info;
+    public int status;
+    public String desc;
 
     public T data;
     public Object exData;
 
 
     public boolean isSuccess() {
-        return code == 0;
+        return status == 1000;
     }
 }

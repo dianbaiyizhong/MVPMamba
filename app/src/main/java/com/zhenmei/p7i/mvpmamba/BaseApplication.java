@@ -1,57 +1,56 @@
 package com.zhenmei.p7i.mvpmamba;
 
-import android.app.Application;
-
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
+import com.zhenmei.p7i.core.app.MVPApplication;
 import com.zhenmei.p7i.core.app.ManBaNetBuilder;
 import com.zhenmei.p7i.mvpmamba.di.DaggerAppComponent;
 
 import javax.inject.Inject;
 
-import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasAndroidInjector;
-import io.reactivex.functions.Consumer;
-import io.reactivex.plugins.RxJavaPlugins;
 
-public class BaseApplication extends Application implements HasAndroidInjector {
+/**
+ * 请按照这个类，扩展自己的Application类
+ */
+public class BaseApplication extends MVPApplication {
     @Inject
     DispatchingAndroidInjector<Object> dispatchingAndroidInjector;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        RxJavaPlugins.setErrorHandler(new Consumer<Throwable>() {
-            @Override
-            public void accept(Throwable throwable) throws Exception {
-                Logger.d(throwable.getMessage());
-            }
-        });
 
+
+        /**
+         * 配置网络
+         */
         ManBaNetBuilder.init(this)
-                .withApiHost("https://aliyun001.p7ik4n.com:8082/rest/api/")
-                .withInterceptor(new TokenInterceptor())
+                .withApiHost("http://wthrcdn.etouch.cn/")
+//                .withInterceptor(new TokenInterceptor())
                 .configure();
 
 
-        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
-                .tag("p7i-log")
-                .build();
-        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
-
+        /**
+         * dagger必写，照抄即可
+         */
         DaggerAppComponent
                 .builder()
                 .application(this)
                 .build()
                 .inject(this);
+
+
+        /**
+         * 日志配置，写不写随便你
+         */
+        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+                .tag("mamba")
+                .build();
+        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
     }
 
 
-    @Override
-    public AndroidInjector<Object> androidInjector() {
-        return dispatchingAndroidInjector;
-    }
 }

@@ -12,12 +12,12 @@ import com.zhenmei.p7i.mvpmamba.R;
 /**
  * 在这里对错误进行统一处理
  */
-public abstract class P7ISecondHandleSubscriber<T> extends P7IFirstHandlerSubscriber<T> {
+public abstract class MambaSecondHandleSubscriber<T> extends MambaFirstHandlerSubscriber<T> {
     private Context context;
 
     public abstract boolean showBySnack();
 
-    public P7ISecondHandleSubscriber(Context context) {
+    public MambaSecondHandleSubscriber(Context context) {
 
         super(context);
         this.context = context;
@@ -25,7 +25,7 @@ public abstract class P7ISecondHandleSubscriber<T> extends P7IFirstHandlerSubscr
     }
 
     @Override
-    public void onP7IError(P7IServerFault fault) {
+    public void onP7IError(MambaServiceFault fault) {
         if (fault.getErrorCode() == 401001) {
 
             //注销操作

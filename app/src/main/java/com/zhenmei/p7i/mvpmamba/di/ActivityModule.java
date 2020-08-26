@@ -1,7 +1,7 @@
 package com.zhenmei.p7i.mvpmamba.di;
 
-import com.zhenmei.p7i.mvpmamba.mvp.contract.UserContract;
-import com.zhenmei.p7i.mvpmamba.mvp.model.UserModel;
+import com.zhenmei.p7i.mvpmamba.mvp.contract.WeatherContract;
+import com.zhenmei.p7i.mvpmamba.mvp.model.WeatherModel;
 
 import dagger.Module;
 import dagger.Provides;
@@ -12,8 +12,8 @@ public class ActivityModule {
 
 
     @Provides
-    UserContract.Model provideUserModel() {
-        return new UserModel();
+    WeatherContract.Model provideWeatherModel() {
+        return new WeatherModel();
     }
 
 

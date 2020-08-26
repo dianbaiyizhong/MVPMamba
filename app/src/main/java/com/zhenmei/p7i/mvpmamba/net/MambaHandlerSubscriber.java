@@ -2,10 +2,10 @@ package com.zhenmei.p7i.mvpmamba.net;
 
 import android.content.Context;
 
-public abstract class P7IHandlerSubscriber<T> extends P7ISecondHandleSubscriber<T> {
+public abstract class MambaHandlerSubscriber<T> extends MambaSecondHandleSubscriber<T> {
     private Context context;
 
-    public P7IHandlerSubscriber(Context context) {
+    public MambaHandlerSubscriber(Context context) {
         super(context);
         this.context = context;
     }
@@ -18,7 +18,7 @@ public abstract class P7IHandlerSubscriber<T> extends P7ISecondHandleSubscriber<
 
 
     @Override
-    public void onP7IError(P7IServerFault fault) {
+    public void onP7IError(MambaServiceFault fault) {
         super.onP7IError(fault);
     }
 

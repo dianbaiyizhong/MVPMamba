@@ -4,13 +4,12 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.blankj.utilcode.util.FragmentUtils;
 import com.zhenmei.p7i.mvpmamba.R;
-import com.zhenmei.p7i.mvpmamba.activity.MyActivity;
-import com.zhenmei.p7i.mvpmamba.mvp.contract.UserContract;
-import com.zhenmei.p7i.mvpmamba.mvp.presenter.UserPresenter;
+import com.zhenmei.p7i.mvpmamba.activity.MyBaseActivity;
+import com.zhenmei.p7i.mvpmamba.mvp.contract.WeatherContract;
+import com.zhenmei.p7i.mvpmamba.mvp.presenter.WeatherPresenter;
 
-public class UserActivity extends MyActivity<UserPresenter> implements UserContract.MView {
+public class WeatherActivity extends MyBaseActivity<WeatherPresenter> implements WeatherContract.MView {
 
 
     @Override
@@ -39,9 +38,8 @@ public class UserActivity extends MyActivity<UserPresenter> implements UserContr
 //
 //                });
 
-//        mPresenter.getUser();
+        mPresenter.getWeather();
 
-        FragmentUtils.add(getSupportFragmentManager(), new UserFragment(), R.id.container);
 
     }
 
@@ -50,12 +48,5 @@ public class UserActivity extends MyActivity<UserPresenter> implements UserContr
 
     }
 
-//    @Inject
-//    DispatchingAndroidInjector<Fragment> fragmentInjector;
-//
-//
-//    @Override
-//    public AndroidInjector<Fragment> supportFragmentInjector() {
-//        return fragmentInjector;
-//    }
+
 }

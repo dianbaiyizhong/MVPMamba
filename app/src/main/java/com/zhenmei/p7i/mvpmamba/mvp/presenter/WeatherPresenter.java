@@ -3,10 +3,9 @@ package com.zhenmei.p7i.mvpmamba.mvp.presenter;
 import com.orhanobut.logger.Logger;
 import com.zhenmei.p7i.core.mvp.BasePresenter;
 import com.zhenmei.p7i.core.utils.RxLifecycleUtils;
-import com.zhenmei.p7i.mvpmamba.mvp.contract.UserContract;
-import com.zhenmei.p7i.mvpmamba.mvp.entity.UserEntity;
-import com.zhenmei.p7i.mvpmamba.mvp.model.api.subject.CommonListSubject;
-import com.zhenmei.p7i.mvpmamba.net.P7IHandlerSubscriber;
+import com.zhenmei.p7i.mvpmamba.mvp.contract.WeatherContract;
+import com.zhenmei.p7i.mvpmamba.mvp.entity.WeatherEntity;
+import com.zhenmei.p7i.mvpmamba.net.MambaHandlerSubscriber;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,32 +15,29 @@ import javax.inject.Inject;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class UserPresenter extends BasePresenter<UserContract.Model, UserContract.MView> {
+public class WeatherPresenter extends BasePresenter<WeatherContract.Model, WeatherContract.MView> {
 
 
     @Inject
-    public UserPresenter(UserContract.Model model) {
+    public WeatherPresenter(WeatherContract.Model model) {
         super(model);
     }
 
 
-    public void getUser() {
+    public void getWeather() {
 
         Map<String, String> paramMap = new HashMap<>();
-        paramMap.put("qid", getId().toString());
-        paramMap.put("page", String.valueOf(page));
-        paramMap.put("rows", String.valueOf(rows));
-        paramMap.put("sortType", String.valueOf(sortType));
+        paramMap.put("city", "北京");
 
-        mModel.getUser()
+
+        mModel.getWeather(paramMap)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(RxLifecycleUtils.bindToLifecycle(mView))
-                .subscribe(new P7IHandlerSubscriber<CommonListSubject<UserEntity>>(context) {
+                .subscribe(new MambaHandlerSubscriber<WeatherEntity>(context) {
                     @Override
-                    public void onNext(CommonListSubject<UserEntity> subject) {
-
-                        Logger.i(subject.rows.size() + "");
+                    public void onNext(WeatherEntity subject) {
+                        Logger.i(subject.toString() + "");
                     }
 
 

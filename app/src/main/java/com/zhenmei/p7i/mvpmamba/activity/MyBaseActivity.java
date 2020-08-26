@@ -10,7 +10,7 @@ import com.zhenmei.p7i.core.mvp.BasePresenter;
 import javax.inject.Inject;
 
 
-public abstract class MyActivity<P extends BasePresenter> extends FMVPActivity {
+public abstract class MyBaseActivity<P extends BasePresenter> extends FMVPActivity {
 
 
     @Override

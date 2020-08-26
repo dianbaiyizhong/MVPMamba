@@ -1,4 +1,4 @@
-package com.zhenmei.p7i.mvpmamba;
+package com.zhenmei.p7i.mvpmamba.token;
 
 
 import com.blankj.utilcode.util.DeviceUtils;

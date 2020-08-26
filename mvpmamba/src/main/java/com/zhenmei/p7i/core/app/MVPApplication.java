@@ -2,45 +2,38 @@ package com.zhenmei.p7i.core.app;
 
 import android.app.Application;
 
-public class MVPApplication extends Application {
-//    private ClientModule mClientModule;
-//    private ServiceModule serviceModule;
-//    private AppModule mAppModule;
-//
-//    private AppComponent appComponent;
-//
-//    public AppComponent getAppComponent() {
-//        return appComponent;
-//    }
+import java.util.logging.Logger;
+
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasAndroidInjector;
+import io.reactivex.functions.Consumer;
+import io.reactivex.plugins.RxJavaPlugins;
+
+public class MVPApplication extends Application implements HasAndroidInjector {
+    @Inject
+    DispatchingAndroidInjector<Object> dispatchingAndroidInjector;
+
 
     @Override
     public void onCreate() {
         super.onCreate();
+        RxJavaPlugins.setErrorHandler(new Consumer<Throwable>() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                throwable.printStackTrace();
+            }
+        });
 
-//        this.mClientModule = ClientModule.buidler().build();
-//        this.serviceModule = new ServiceModule();
-//        this.mAppModule = new AppModule(this);//提供application
-
-//        appComponent = DaggerAppComponent.builder()
-//                .clientModule(getClientModule())
-//                .appModule(getAppModule())
-//                .serviceModule(getServiceModule())
-//                .build();
 
 
     }
 
-//    public ClientModule getClientModule() {
-//        return mClientModule;
-//    }
-//
-//    public AppModule getAppModule() {
-//        return mAppModule;
-//    }
-//
-//
-//    public ServiceModule getServiceModule() {
-//        return serviceModule;
-//    }
+    @Override
+    public AndroidInjector<Object> androidInjector() {
+        return dispatchingAndroidInjector;
+    }
 
 }

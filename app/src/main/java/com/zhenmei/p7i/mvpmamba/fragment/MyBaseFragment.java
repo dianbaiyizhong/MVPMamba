@@ -8,14 +8,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.orhanobut.logger.Logger;
 import com.zhenmei.p7i.core.fragment.FMVPFragment;
 import com.zhenmei.p7i.core.mvp.BasePresenter;
-import com.zhenmei.p7i.mvpmamba.R;
 
 import javax.inject.Inject;
 
-public abstract class MyFragment<P extends BasePresenter> extends FMVPFragment {
+public abstract class MyBaseFragment<P extends BasePresenter> extends FMVPFragment {
     @Inject
     protected P mPresenter;
 
