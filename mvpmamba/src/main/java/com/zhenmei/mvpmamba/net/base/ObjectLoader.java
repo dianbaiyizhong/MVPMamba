@@ -1,4 +1,4 @@
-package com.zhenmei.mvpmamba.demo.net.base;
+package com.zhenmei.mvpmamba.net.base;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;

@@ -28,7 +28,7 @@ import com.trello.rxlifecycle2.android.RxLifecycleAndroid;
 import com.zhenmei.mvpmamba.integration.lifecycle.ActivityLifecycleable;
 import com.zhenmei.mvpmamba.integration.lifecycle.FragmentLifecycleable;
 import com.zhenmei.mvpmamba.integration.lifecycle.Lifecycleable;
-import com.zhenmei.mvpmamba.demo.mvp.IView;
+import com.zhenmei.mvpmamba.mvp.IView;
 
 import io.reactivex.annotations.NonNull;
 

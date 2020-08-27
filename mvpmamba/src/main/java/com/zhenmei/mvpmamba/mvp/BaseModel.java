@@ -1,8 +1,8 @@
-package com.zhenmei.mvpmamba.demo.mvp;
+package com.zhenmei.mvpmamba.mvp;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.zhenmei.mvpmamba.demo.net.base.RetrofitServiceManager;
+import com.zhenmei.mvpmamba.net.base.RetrofitServiceManager;
 
 import java.util.Collections;
 import java.util.HashMap;

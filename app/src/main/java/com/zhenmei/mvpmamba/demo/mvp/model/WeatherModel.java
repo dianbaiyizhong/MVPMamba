@@ -1,6 +1,6 @@
 package com.zhenmei.mvpmamba.demo.mvp.model;
 
-import com.zhenmei.mvpmamba.demo.mvp.BaseModel;
+import com.zhenmei.mvpmamba.mvp.BaseModel;
 import com.zhenmei.mvpmamba.demo.net.PayLoad;
 import com.zhenmei.mvpmamba.demo.mvp.contract.WeatherContract;
 import com.zhenmei.mvpmamba.demo.mvp.entity.WeatherEntity;

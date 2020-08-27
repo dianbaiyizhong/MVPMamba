@@ -1,4 +1,4 @@
-package com.zhenmei.mvpmamba.demo.net.base;
+package com.zhenmei.mvpmamba.net.base;
 
 import com.zhenmei.mvpmamba.app.ConfigKeys;
 import com.zhenmei.mvpmamba.app.ManBaNetBuilder;

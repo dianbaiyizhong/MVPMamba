@@ -2,11 +2,6 @@ package com.zhenmei.mvpmamba.mvp;
 
 import android.content.Context;
 
-import com.zhenmei.mvpmamba.demo.mvp.BasePagingPresenter;
-import com.zhenmei.mvpmamba.demo.mvp.IModel;
-import com.zhenmei.mvpmamba.demo.mvp.IView;
-import com.zhenmei.mvpmamba.demo.mvp.Ipresenter;
-
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 

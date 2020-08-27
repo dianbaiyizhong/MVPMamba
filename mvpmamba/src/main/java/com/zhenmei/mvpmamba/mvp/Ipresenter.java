@@ -1,4 +1,4 @@
-package com.zhenmei.mvpmamba.demo.mvp;
+package com.zhenmei.mvpmamba.mvp;
 
 /**
  * Created by jess on 16/4/28.

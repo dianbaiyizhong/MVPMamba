@@ -1,7 +1,7 @@
 package com.zhenmei.mvpmamba.demo.mvp.contract;
 
-import com.zhenmei.mvpmamba.demo.mvp.IModel;
-import com.zhenmei.mvpmamba.demo.mvp.IView;
+import com.zhenmei.mvpmamba.mvp.IModel;
+import com.zhenmei.mvpmamba.mvp.IView;
 import com.zhenmei.mvpmamba.demo.mvp.entity.WeatherEntity;
 
 import java.util.Map;

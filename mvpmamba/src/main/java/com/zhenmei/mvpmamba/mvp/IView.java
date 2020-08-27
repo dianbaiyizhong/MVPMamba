@@ -1,4 +1,4 @@
-package com.zhenmei.mvpmamba.demo.mvp;
+package com.zhenmei.mvpmamba.mvp;
 
 
 public interface IView {

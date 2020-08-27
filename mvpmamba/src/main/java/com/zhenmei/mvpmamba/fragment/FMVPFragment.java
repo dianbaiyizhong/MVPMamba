@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment;
 import com.trello.rxlifecycle2.android.FragmentEvent;
 import com.zhenmei.mvpmamba.di.AndroidInjection;
 import com.zhenmei.mvpmamba.integration.lifecycle.FragmentLifecycleable;
-import com.zhenmei.mvpmamba.demo.mvp.IView;
+import com.zhenmei.mvpmamba.mvp.IView;
 
 import io.reactivex.subjects.BehaviorSubject;
 import io.reactivex.subjects.Subject;

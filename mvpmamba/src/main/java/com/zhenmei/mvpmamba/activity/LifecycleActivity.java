@@ -1,4 +1,4 @@
-package com.zhenmei.mvpmamba.demo.activity;
+package com.zhenmei.mvpmamba.activity;
 
 import android.os.Bundle;
 

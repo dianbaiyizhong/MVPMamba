@@ -1,4 +1,4 @@
-package com.zhenmei.mvpmamba.demo.net.base;
+package com.zhenmei.mvpmamba.net.base;
 
 import android.content.Context;
 import android.content.res.AssetManager;

@@ -1,4 +1,4 @@
-package com.zhenmei.mvpmamba.demo.net.download;
+package com.zhenmei.mvpmamba.net.download;
 
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;

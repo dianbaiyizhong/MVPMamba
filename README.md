@@ -4,17 +4,19 @@
 [![](https://www.jitpack.io/v/huanghaoming/MVPMamba.svg)](https://www.jitpack.io/#huanghaoming/MVPMamba)
 
 ### 推荐使用理由：
-1.使用Rx方式通过Retrofit进行网络请求，并直接封装解决内存泄漏问题
-2.也整合了RxCache的缓存使用
-3.也支持多个baseUrl的请求源
-4.支持token拦截器
-5.同时支持activity和fragment
-6.教你封装统一请求错误处理
+**1.使用Rx方式通过Retrofit进行网络请求，并直接封装解决内存泄漏问题**
+**2.也整合了RxCache的缓存使用**
+**3.也支持多个baseUrl的请求源**
+**4.支持token拦截器**
+**5.同时支持activity和fragment**
+**6.教你封装统一请求错误处理**
 
 
 ### 先确认一个小需求
 请求得到天气的数据，以下是一个请求天气的api接口
+
 http://wthrcdn.etouch.cn/weather_mini?city=北京
+
 我们通过这个作为案例，来实现整合一个demo
 
 ### 我的环境
@@ -403,3 +405,16 @@ public class TokenInterceptor implements Interceptor {
                 .withInterceptor(new TokenInterceptor()) //这么使用
                 .configure();
 ```
+
+
+
+
+# 鸣谢
+https://github.com/JessYanCoding
+
+
+
+
+
+
+
