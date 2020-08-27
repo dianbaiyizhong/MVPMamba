@@ -8,16 +8,11 @@ import com.zhenmei.p7i.core.app.MVPApplication;
 import com.zhenmei.p7i.core.app.ManBaNetBuilder;
 import com.zhenmei.p7i.mvpmamba.di.DaggerAppComponent;
 
-import javax.inject.Inject;
-
-import dagger.android.DispatchingAndroidInjector;
-
 /**
  * 请按照这个类，扩展自己的Application类
  */
 public class BaseApplication extends MVPApplication {
-    @Inject
-    DispatchingAndroidInjector<Object> dispatchingAndroidInjector;
+
 
     @Override
     public void onCreate() {
