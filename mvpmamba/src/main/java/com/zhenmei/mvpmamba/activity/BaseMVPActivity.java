@@ -1,11 +1,11 @@
-package com.zhenmei.mvpmamba.demo.activity;
+package com.zhenmei.mvpmamba.activity;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.zhenmei.mvpmamba.demo.mvp.BasePresenter;
+import com.zhenmei.mvpmamba.mvp.BasePresenter;
 
 public abstract class BaseMVPActivity<P extends BasePresenter> extends AppCompatActivity {
 

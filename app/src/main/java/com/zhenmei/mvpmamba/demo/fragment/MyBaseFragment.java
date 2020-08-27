@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.zhenmei.mvpmamba.demo.mvp.BasePresenter;
+import com.zhenmei.mvpmamba.mvp.BasePresenter;
 import com.zhenmei.mvpmamba.fragment.FMVPFragment;
 
 import javax.inject.Inject;

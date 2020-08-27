@@ -6,8 +6,8 @@ import androidx.annotation.Nullable;
 
 import com.zhenmei.mvpmamba.demo.activity.LifecycleActivity;
 import com.zhenmei.mvpmamba.di.AndroidInjection;
-import com.zhenmei.mvpmamba.demo.mvp.BasePresenter;
 import com.zhenmei.mvpmamba.demo.mvp.IView;
+import com.zhenmei.mvpmamba.mvp.BasePresenter;
 
 public abstract class FMVPActivity<P extends BasePresenter> extends LifecycleActivity implements IView {
 

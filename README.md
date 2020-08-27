@@ -1,6 +1,8 @@
 # MVPMamba
 ## 一个整合dagger2+MVP架构+Retrofit2网络请求+RxJava的库（androidx）
 
+[![](https://www.jitpack.io/v/huanghaoming/MVPMamba.svg)](https://www.jitpack.io/#huanghaoming/MVPMamba)
+
 ### 推荐使用理由：
 1.使用Rx方式通过Retrofit进行网络请求，并直接封装解决内存泄漏问题
 2.也整合了RxCache的缓存使用

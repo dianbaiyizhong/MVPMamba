@@ -6,6 +6,9 @@ dependencies {
 
 }
 
-
+// java控制台输出中文乱码
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"

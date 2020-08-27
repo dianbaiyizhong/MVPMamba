@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.zhenmei.mvpmamba.activity.FMVPActivity;
-import com.zhenmei.mvpmamba.demo.mvp.BasePresenter;
+import com.zhenmei.mvpmamba.mvp.BasePresenter;
 
 import javax.inject.Inject;
 

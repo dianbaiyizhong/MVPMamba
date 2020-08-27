@@ -1,7 +1,7 @@
 package com.zhenmei.mvpmamba.demo.mvp.presenter;
 
 import com.orhanobut.logger.Logger;
-import com.zhenmei.mvpmamba.demo.mvp.BasePresenter;
+import com.zhenmei.mvpmamba.mvp.BasePresenter;
 import com.zhenmei.mvpmamba.utils.RxLifecycleUtils;
 import com.zhenmei.mvpmamba.demo.mvp.contract.WeatherContract;
 import com.zhenmei.mvpmamba.demo.mvp.entity.WeatherEntity;
