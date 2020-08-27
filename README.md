@@ -23,7 +23,7 @@ android studio 4.0.1 + gradle-5.6.4
 ### 整合步骤（一步一步按照顺序照抄即可）
 导入库
 ```groovy
-implementation 'com.github.huanghaoming:MVPMamba:1.0'
+implementation 'com.github.huanghaoming:MVPMamba:1.x'
 ```
 
 除此之外，还要有
