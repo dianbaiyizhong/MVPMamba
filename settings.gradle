@@ -1,2 +1,4 @@
+include ':mvpmamba-compiler'
+include ':mvpmamba-annotation'
 rootProject.name='MVPMamba'
 include ':app', ':mvpmamba'

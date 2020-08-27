@@ -6,7 +6,7 @@ android {
     buildToolsVersion "29.0.2"
 
     defaultConfig {
-        applicationId "com.zhenmei.p7i.mvpmamba"
+        applicationId "com.zhenmei.mvpmamba"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
@@ -38,6 +38,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation project(':mvpmamba')
+    implementation project(':mvpmamba-annotation')
+    annotationProcessor project(':mvpmamba-compiler')
 
     implementation rootProject.ext.dependencies["material"]
 

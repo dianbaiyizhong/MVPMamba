@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zhenmei.p7i.core">
+    package="com.zhenmei.mvpmamba">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
