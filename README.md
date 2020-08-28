@@ -1,6 +1,11 @@
 # MVPMamba
 ## 一个整合dagger2+MVP架构+Retrofit2网络请求+RxJava的库（androidx）
 
+
+## 我的环境
+android studio 4.0.1 + gradle-5.6.4
+
+
 [![](https://www.jitpack.io/v/huanghaoming/MVPMamba.svg)](https://www.jitpack.io/#huanghaoming/MVPMamba)
 
 ### 推荐使用理由：
@@ -19,8 +24,6 @@ http://wthrcdn.etouch.cn/weather_mini?city=北京
 
 我们通过这个作为案例，来实现整合一个demo
 
-### 我的环境
-android studio 4.0.1 + gradle-5.6.4
 
 ### 整合步骤（一步一步按照顺序照抄即可）
 导入库
