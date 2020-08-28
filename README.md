@@ -4,13 +4,13 @@
 [![](https://www.jitpack.io/v/huanghaoming/MVPMamba.svg)](https://www.jitpack.io/#huanghaoming/MVPMamba)
 
 ### 推荐使用理由：
-**1.使用Rx方式通过Retrofit进行网络请求，并直接封装解决内存泄漏问题**
-**2.也整合了RxCache的缓存使用**
-**3.也支持多个baseUrl的请求源**
-**4.支持token拦截器**
-**5.同时支持activity和fragment**
-**6.教你封装统一请求错误处理**
-
+**1.使用Rx方式通过Retrofit进行网络请求，并直接封装解决内存泄漏问题** <br/>
+**2.也整合了RxCache的缓存使用**<br/>
+**3.也支持多个baseUrl的请求源**<br/>
+**4.支持token拦截器**<br/>
+**5.同时支持activity和fragment**<br/>
+**6.教你封装统一请求错误处理**<br/>
+**不需要每个activity都要写注入，直接使用基类统一注入**<br/>
 
 ### 先确认一个小需求
 请求得到天气的数据，以下是一个请求天气的api接口
@@ -248,7 +248,7 @@ public class WeatherPresenter extends BasePresenter<WeatherContract.Model, Weath
 ```
 
 
-编写activity的基类（一定要，一切为了dagger2的注入，对着抄就好）
+编写activity的基类，作用是dagger只注入一次，不用每个activity都写（一定要，一切为了dagger2的注入，对着抄就好）
 ```java
 public abstract class MyBaseActivity<P extends BasePresenter> extends FMVPActivity {
 
