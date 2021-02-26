@@ -43,7 +43,11 @@ public class WeatherPresenter extends BasePresenter<WeatherContract.Model, Weath
 
                     @Override
                     public void onError(Throwable e) {
+                        e.printStackTrace();
+                        Logger.e("报错了:" + e.getMessage() + "");
                         super.onError(e);
+
+
                         mView.loadError();
                     }
                 });
