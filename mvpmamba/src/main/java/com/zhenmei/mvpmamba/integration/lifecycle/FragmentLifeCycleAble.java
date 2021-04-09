@@ -15,19 +15,17 @@
  */
 package com.zhenmei.mvpmamba.integration.lifecycle;
 
-import android.app.Activity;
 
-import com.trello.rxlifecycle4.RxLifecycle;
-import com.trello.rxlifecycle4.android.ActivityEvent;
+import com.trello.rxlifecycle4.android.FragmentEvent;
 
 /**
  * ================================================
- * 让 {@link Activity} 实现此接口,即可正常使用 {@link RxLifecycle}
- *
+ * 让 {@link androidx.fragment.app.Fragment} 实现此接口,即可正常使用 {@link com.trello.rxlifecycle4.RxLifecycle}
+ * <p>
  * Created by JessYan on 26/08/2017 17:14
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
-public interface ActivityLifecycleable extends Lifecycleable<ActivityEvent> {
+public interface FragmentLifeCycleAble extends LifeCycleAble<FragmentEvent> {
 }

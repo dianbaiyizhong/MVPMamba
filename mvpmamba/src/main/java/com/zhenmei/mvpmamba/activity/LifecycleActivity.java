@@ -7,13 +7,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.trello.rxlifecycle4.android.ActivityEvent;
-import com.zhenmei.mvpmamba.integration.lifecycle.ActivityLifecycleable;
+import com.zhenmei.mvpmamba.integration.lifecycle.ActivityLifeCycleAble;
 
 import io.reactivex.rxjava3.subjects.BehaviorSubject;
 import io.reactivex.rxjava3.subjects.Subject;
 
 
-public class LifecycleActivity extends AppCompatActivity implements ActivityLifecycleable {
+public class LifecycleActivity extends AppCompatActivity implements ActivityLifeCycleAble {
     private final BehaviorSubject<ActivityEvent> mLifecycleSubject = BehaviorSubject.create();
 
     @NonNull

@@ -25,23 +25,14 @@ import com.trello.rxlifecycle4.RxLifecycle;
 import com.trello.rxlifecycle4.android.ActivityEvent;
 import com.trello.rxlifecycle4.android.FragmentEvent;
 import com.trello.rxlifecycle4.android.RxLifecycleAndroid;
-import com.trello.rxlifecycle4.android.RxLifecycleAndroid;
-import com.zhenmei.mvpmamba.integration.lifecycle.ActivityLifecycleable;
-import com.zhenmei.mvpmamba.integration.lifecycle.FragmentLifecycleable;
-import com.zhenmei.mvpmamba.integration.lifecycle.Lifecycleable;
+import com.zhenmei.mvpmamba.integration.lifecycle.ActivityLifeCycleAble;
+import com.zhenmei.mvpmamba.integration.lifecycle.FragmentLifeCycleAble;
+import com.zhenmei.mvpmamba.integration.lifecycle.LifeCycleAble;
 import com.zhenmei.mvpmamba.mvp.IView;
 import io.reactivex.rxjava3.annotations.NonNull;
 
 
-/**
- * ================================================
- * 使用此类操作 RxLifecycle 的特性
- * <p>
- * Created by JessYan on 26/08/2017 17:52
- * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
- * <a href="https://github.com/JessYanCoding">Follow me</a>
- * ================================================
- */
+
 @SuppressLint("RestrictedApi")
 public class RxLifecycleUtils {
 
@@ -60,10 +51,10 @@ public class RxLifecycleUtils {
     public static <T> LifecycleTransformer<T> bindUntilEvent(@NonNull final IView view,
                                                              final ActivityEvent event) {
         Preconditions.checkNotNull(view, "view == null");
-        if (view instanceof ActivityLifecycleable) {
-            return bindUntilEvent((ActivityLifecycleable) view, event);
+        if (view instanceof ActivityLifeCycleAble) {
+            return bindUntilEvent((ActivityLifeCycleAble) view, event);
         } else {
-            throw new IllegalArgumentException("view isn't ActivityLifecycleable");
+            throw new IllegalArgumentException("view isn't ActivityLifecycleAble");
         }
     }
 
@@ -78,16 +69,16 @@ public class RxLifecycleUtils {
     public static <T> LifecycleTransformer<T> bindUntilEvent(@NonNull final IView view,
                                                              final FragmentEvent event) {
         Preconditions.checkNotNull(view, "view == null");
-        if (view instanceof FragmentLifecycleable) {
-            return bindUntilEvent((FragmentLifecycleable) view, event);
+        if (view instanceof FragmentLifeCycleAble) {
+            return bindUntilEvent((FragmentLifeCycleAble) view, event);
         } else {
-            throw new IllegalArgumentException("view isn't FragmentLifecycleable");
+            throw new IllegalArgumentException("view isn't FragmentLifecycleAble");
         }
     }
 
-    public static <T, R> LifecycleTransformer<T> bindUntilEvent(@NonNull final Lifecycleable<R> lifecycleable,
+    public static <T, R> LifecycleTransformer<T> bindUntilEvent(@NonNull final LifeCycleAble<R> lifecycleable,
                                                                 final R event) {
-        Preconditions.checkNotNull(lifecycleable, "lifecycleable == null");
+        Preconditions.checkNotNull(lifecycleable, "lifecycleAble == null");
         return RxLifecycle.bindUntilEvent(lifecycleable.provideLifecycleSubject(), event);
     }
 
@@ -100,21 +91,21 @@ public class RxLifecycleUtils {
      */
     public static <T> LifecycleTransformer<T> bindToLifecycle(@NonNull IView view) {
         Preconditions.checkNotNull(view, "view == null");
-        if (view instanceof Lifecycleable) {
-            return bindToLifecycle((Lifecycleable) view);
+        if (view instanceof LifeCycleAble) {
+            return bindToLifecycle((LifeCycleAble) view);
         } else {
             throw new IllegalArgumentException("view isn't Lifecycleable");
         }
     }
 
-    public static <T> LifecycleTransformer<T> bindToLifecycle(@NonNull Lifecycleable lifecycleable) {
+    public static <T> LifecycleTransformer<T> bindToLifecycle(@NonNull LifeCycleAble lifecycleable) {
         Preconditions.checkNotNull(lifecycleable, "lifecycleable == null");
-        if (lifecycleable instanceof ActivityLifecycleable) {
+        if (lifecycleable instanceof ActivityLifeCycleAble) {
 
 
-            return RxLifecycleAndroid.bindActivity(((ActivityLifecycleable) lifecycleable).provideLifecycleSubject());
-        } else if (lifecycleable instanceof FragmentLifecycleable) {
-            return RxLifecycleAndroid.bindFragment(((FragmentLifecycleable) lifecycleable).provideLifecycleSubject());
+            return RxLifecycleAndroid.bindActivity(((ActivityLifeCycleAble) lifecycleable).provideLifecycleSubject());
+        } else if (lifecycleable instanceof FragmentLifeCycleAble) {
+            return RxLifecycleAndroid.bindFragment(((FragmentLifeCycleAble) lifecycleable).provideLifecycleSubject());
         } else {
             throw new IllegalArgumentException("Lifecycleable not match");
         }

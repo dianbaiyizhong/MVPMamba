@@ -10,7 +10,7 @@ import com.zhenmei.mvpmamba.demo.R;
 import com.zhenmei.mvpmamba.errorhandle.ExceptionHandle;
 
 /**
- * 在这里对错误进行统一处理
+ * 在这里对异常信息进行统一处理
  */
 public abstract class MambaSecondHandleSubscriber<T> extends MambaFirstHandlerSubscriber<T> {
     private Context context;

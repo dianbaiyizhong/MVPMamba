@@ -33,19 +33,18 @@ public abstract class MambaFirstHandlerSubscriber<T> extends BaseErrorHandleSubs
 
     @Override
     public void onError(Throwable e) {
-        Logger.e("onError:", e);
+        Logger.e("MambaFirstHandlerSubscriber onError", e);
 
+        // 判断是否为后台返回的正常异常信息
         if (e instanceof MambaServiceFault) {
             MambaServiceFault fault = (MambaServiceFault) e;
-
             String clientInfo = JSON.parseObject(JSON.toJSONString(fault.getResponseData())).getString("clientInfo");
-            if (StringUtils.isEmpty(clientInfo)) {
-
-            } else {
+            if (!StringUtils.isEmpty(clientInfo)) {
                 onErrorTip(clientInfo);
             }
             onSystemError(fault);
         } else {
+            // 否则当网络异常处理
             onNetError(e);
         }
 

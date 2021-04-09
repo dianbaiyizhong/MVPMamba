@@ -33,7 +33,7 @@ import io.reactivex.rxjava3.subjects.Subject;
 
 /**
  * ================================================
- * 配合 {@link FragmentLifecycleable} 使用,使 {@link Fragment} 具有 {@link RxLifecycle} 的特性
+ * 配合 {@link FragmentLifeCycleAble} 使用,使 {@link Fragment} 具有 {@link RxLifecycle} 的特性
  * <p>
  * Created by JessYan on 26/08/2017 16:02
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
@@ -49,75 +49,75 @@ public class FragmentLifecycleForRxLifecycle extends FragmentManager.FragmentLif
 
     @Override
     public void onFragmentAttached(FragmentManager fm, Fragment f, Context context) {
-        if (f instanceof FragmentLifecycleable) {
+        if (f instanceof FragmentLifeCycleAble) {
             obtainSubject(f).onNext(FragmentEvent.ATTACH);
         }
     }
 
     @Override
     public void onFragmentCreated(FragmentManager fm, Fragment f, Bundle savedInstanceState) {
-        if (f instanceof FragmentLifecycleable) {
+        if (f instanceof FragmentLifeCycleAble) {
             obtainSubject(f).onNext(FragmentEvent.CREATE);
         }
     }
 
     @Override
     public void onFragmentViewCreated(FragmentManager fm, Fragment f, View v, Bundle savedInstanceState) {
-        if (f instanceof FragmentLifecycleable) {
+        if (f instanceof FragmentLifeCycleAble) {
             obtainSubject(f).onNext(FragmentEvent.CREATE_VIEW);
         }
     }
 
     @Override
     public void onFragmentStarted(FragmentManager fm, Fragment f) {
-        if (f instanceof FragmentLifecycleable) {
+        if (f instanceof FragmentLifeCycleAble) {
             obtainSubject(f).onNext(FragmentEvent.START);
         }
     }
 
     @Override
     public void onFragmentResumed(FragmentManager fm, Fragment f) {
-        if (f instanceof FragmentLifecycleable) {
+        if (f instanceof FragmentLifeCycleAble) {
             obtainSubject(f).onNext(FragmentEvent.RESUME);
         }
     }
 
     @Override
     public void onFragmentPaused(FragmentManager fm, Fragment f) {
-        if (f instanceof FragmentLifecycleable) {
+        if (f instanceof FragmentLifeCycleAble) {
             obtainSubject(f).onNext(FragmentEvent.PAUSE);
         }
     }
 
     @Override
     public void onFragmentStopped(FragmentManager fm, Fragment f) {
-        if (f instanceof FragmentLifecycleable) {
+        if (f instanceof FragmentLifeCycleAble) {
             obtainSubject(f).onNext(FragmentEvent.STOP);
         }
     }
 
     @Override
     public void onFragmentViewDestroyed(FragmentManager fm, Fragment f) {
-        if (f instanceof FragmentLifecycleable) {
+        if (f instanceof FragmentLifeCycleAble) {
             obtainSubject(f).onNext(FragmentEvent.DESTROY_VIEW);
         }
     }
 
     @Override
     public void onFragmentDestroyed(FragmentManager fm, Fragment f) {
-        if (f instanceof FragmentLifecycleable) {
+        if (f instanceof FragmentLifeCycleAble) {
             obtainSubject(f).onNext(FragmentEvent.DESTROY);
         }
     }
 
     @Override
     public void onFragmentDetached(FragmentManager fm, Fragment f) {
-        if (f instanceof FragmentLifecycleable) {
+        if (f instanceof FragmentLifeCycleAble) {
             obtainSubject(f).onNext(FragmentEvent.DETACH);
         }
     }
 
     private Subject<FragmentEvent> obtainSubject(Fragment fragment) {
-        return ((FragmentLifecycleable) fragment).provideLifecycleSubject();
+        return ((FragmentLifeCycleAble) fragment).provideLifecycleSubject();
     }
 }
