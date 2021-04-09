@@ -2,8 +2,9 @@ package com.zhenmei.mvpmamba.mvp;
 
 import android.content.Context;
 
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
+
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.Disposable;
 
 
 public class BasePresenter<M extends IModel, V extends IView> extends BasePagingPresenter implements Ipresenter {

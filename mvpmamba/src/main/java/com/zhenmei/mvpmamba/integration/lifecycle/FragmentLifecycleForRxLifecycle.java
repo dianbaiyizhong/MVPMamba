@@ -22,13 +22,14 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.trello.rxlifecycle2.RxLifecycle;
-import com.trello.rxlifecycle2.android.FragmentEvent;
+import com.trello.rxlifecycle4.RxLifecycle;
+import com.trello.rxlifecycle4.android.FragmentEvent;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import io.reactivex.subjects.Subject;
+import io.reactivex.rxjava3.subjects.Subject;
+
 
 /**
  * ================================================

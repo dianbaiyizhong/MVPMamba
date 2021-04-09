@@ -16,8 +16,7 @@
 package com.zhenmei.mvpmamba.integration.lifecycle;
 
 
-import com.trello.rxlifecycle2.RxLifecycle;
-import com.trello.rxlifecycle2.android.FragmentEvent;
+import com.trello.rxlifecycle4.android.FragmentEvent;
 
 /**
  * ================================================

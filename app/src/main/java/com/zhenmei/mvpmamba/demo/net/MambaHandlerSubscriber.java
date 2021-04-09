@@ -18,13 +18,15 @@ public abstract class MambaHandlerSubscriber<T> extends MambaSecondHandleSubscri
 
 
     @Override
-    public void onP7IError(MambaServiceFault fault) {
-        super.onP7IError(fault);
+    public void onSystemError(MambaServiceFault fault) {
+        super.onSystemError(fault);
     }
 
 
     @Override
-    public void onP7IErrorMessage(String clientMessage) {
-        super.onP7IErrorMessage(clientMessage);
+    public void onErrorTip(String clientMessage) {
+        super.onErrorTip(clientMessage);
     }
+
+
 }

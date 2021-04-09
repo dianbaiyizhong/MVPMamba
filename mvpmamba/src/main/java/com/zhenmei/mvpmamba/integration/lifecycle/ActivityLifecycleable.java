@@ -17,8 +17,8 @@ package com.zhenmei.mvpmamba.integration.lifecycle;
 
 import android.app.Activity;
 
-import com.trello.rxlifecycle2.RxLifecycle;
-import com.trello.rxlifecycle2.android.ActivityEvent;
+import com.trello.rxlifecycle4.RxLifecycle;
+import com.trello.rxlifecycle4.android.ActivityEvent;
 
 /**
  * ================================================

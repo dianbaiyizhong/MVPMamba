@@ -5,7 +5,7 @@ import com.zhenmei.mvpmamba.demo.mvp.entity.WeatherEntity;
 
 import java.util.Map;
 
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.core.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
 

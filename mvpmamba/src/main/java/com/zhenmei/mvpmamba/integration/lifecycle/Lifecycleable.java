@@ -19,9 +19,10 @@ import android.app.Activity;
 
 import androidx.annotation.NonNull;
 
-import com.trello.rxlifecycle2.RxLifecycle;
+import com.trello.rxlifecycle4.RxLifecycle;
 
-import io.reactivex.subjects.Subject;
+import io.reactivex.rxjava3.subjects.Subject;
+
 
 /**
  * ================================================

@@ -21,14 +21,14 @@ import android.os.Bundle;
 
 import androidx.fragment.app.FragmentActivity;
 
-import com.trello.rxlifecycle2.RxLifecycle;
-import com.trello.rxlifecycle2.android.ActivityEvent;
+
+import com.trello.rxlifecycle4.android.ActivityEvent;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import dagger.Lazy;
-import io.reactivex.subjects.Subject;
+import io.reactivex.rxjava3.subjects.Subject;
 
 /**
  * ================================================

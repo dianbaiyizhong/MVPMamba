@@ -20,17 +20,18 @@ import android.annotation.SuppressLint;
 import androidx.core.util.Preconditions;
 
 
-import com.trello.rxlifecycle2.LifecycleTransformer;
-import com.trello.rxlifecycle2.RxLifecycle;
-import com.trello.rxlifecycle2.android.ActivityEvent;
-import com.trello.rxlifecycle2.android.FragmentEvent;
-import com.trello.rxlifecycle2.android.RxLifecycleAndroid;
+import com.trello.rxlifecycle4.LifecycleTransformer;
+import com.trello.rxlifecycle4.RxLifecycle;
+import com.trello.rxlifecycle4.android.ActivityEvent;
+import com.trello.rxlifecycle4.android.FragmentEvent;
+import com.trello.rxlifecycle4.android.RxLifecycleAndroid;
+import com.trello.rxlifecycle4.android.RxLifecycleAndroid;
 import com.zhenmei.mvpmamba.integration.lifecycle.ActivityLifecycleable;
 import com.zhenmei.mvpmamba.integration.lifecycle.FragmentLifecycleable;
 import com.zhenmei.mvpmamba.integration.lifecycle.Lifecycleable;
 import com.zhenmei.mvpmamba.mvp.IView;
+import io.reactivex.rxjava3.annotations.NonNull;
 
-import io.reactivex.annotations.NonNull;
 
 /**
  * ================================================
@@ -109,6 +110,8 @@ public class RxLifecycleUtils {
     public static <T> LifecycleTransformer<T> bindToLifecycle(@NonNull Lifecycleable lifecycleable) {
         Preconditions.checkNotNull(lifecycleable, "lifecycleable == null");
         if (lifecycleable instanceof ActivityLifecycleable) {
+
+
             return RxLifecycleAndroid.bindActivity(((ActivityLifecycleable) lifecycleable).provideLifecycleSubject());
         } else if (lifecycleable instanceof FragmentLifecycleable) {
             return RxLifecycleAndroid.bindFragment(((FragmentLifecycleable) lifecycleable).provideLifecycleSubject());

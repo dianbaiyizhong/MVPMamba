@@ -58,17 +58,17 @@ dependencies {
 
 
     //网络请求框架
-    api 'com.squareup.retrofit2:retrofit:2.3.0'
+    api ('com.squareup.retrofit2:retrofit:2.9.0')
     api rootProject.ext.dependencies["rxandroid"]
-    api 'com.squareup.retrofit2:converter-gson:2.3.0'
-    api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    api ('com.squareup.retrofit2:converter-gson:2.9.0')
+    api 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
 
 
-    api 'com.trello.rxlifecycle2:rxlifecycle:2.2.2'
-    api 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.2'
-    api 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.2'
+    api ('com.trello.rxlifecycle4:rxlifecycle:4.0.2')
+    api ('com.trello.rxlifecycle4:rxlifecycle-android:4.0.2')
+    api ('com.trello.rxlifecycle4:rxlifecycle-components:4.0.2')
 
-    api 'me.jessyan:rxerrorhandler:2.1.1'
+    api ('me.jessyan:rxerrorhandler:2.1.1')
 
 
     api rootProject.ext.dependencies["dagger"]
@@ -79,12 +79,14 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["dagger-android-processor"]
 
 
-    implementation 'com.github.VictorAlbertos.Jolyglot:gson:0.0.4'
+    implementation ('com.github.VictorAlbertos.Jolyglot:gson:0.0.4'){
+        exclude group: 'io.reactivex.rxjava2'
+    }
 
     api('com.github.VictorAlbertos.RxCache:runtime:1.8.3-2.x') {
         exclude group: 'org.glassfish'
     }
 
-    implementation 'me.jessyan:retrofit-url-manager:1.4.0'
+    implementation ('me.jessyan:retrofit-url-manager:1.4.0')
 
 }

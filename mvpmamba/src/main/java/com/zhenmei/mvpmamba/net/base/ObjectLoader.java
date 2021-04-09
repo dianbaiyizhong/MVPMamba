@@ -1,8 +1,9 @@
 package com.zhenmei.mvpmamba.net.base;
 
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
  * 将一些重复的操作提出来，放到父类以免Loader 里每个接口都有重复代码
