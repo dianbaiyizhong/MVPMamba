@@ -5,15 +5,16 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.trello.rxlifecycle2.android.FragmentEvent;
+import com.trello.rxlifecycle4.android.FragmentEvent;
 import com.zhenmei.mvpmamba.di.AndroidInjection;
-import com.zhenmei.mvpmamba.integration.lifecycle.FragmentLifecycleable;
+import com.zhenmei.mvpmamba.integration.lifecycle.FragmentLifeCycleAble;
 import com.zhenmei.mvpmamba.mvp.IView;
 
-import io.reactivex.subjects.BehaviorSubject;
-import io.reactivex.subjects.Subject;
+import io.reactivex.rxjava3.subjects.BehaviorSubject;
+import io.reactivex.rxjava3.subjects.Subject;
 
-public abstract class FMVPFragment extends Fragment implements FragmentLifecycleable, IView {
+
+public abstract class FMVPFragment extends Fragment implements FragmentLifeCycleAble, IView {
     private final BehaviorSubject<FragmentEvent> mLifecycleSubject = BehaviorSubject.create();
 
 

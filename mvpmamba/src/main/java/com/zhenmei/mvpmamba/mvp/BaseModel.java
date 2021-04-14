@@ -8,9 +8,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
@@ -20,13 +21,6 @@ public class BaseModel {
 
     protected static Map<String, String> bean2Map(Object o) {
         Gson gson = new Gson();
-
-//        String s1 = JSON.toJSONString(o);
-//
-//        Map<String, String> map = GsonUtils.fromJson(s1,
-//                new TypeToken<Map<String, String>>() {
-//                }.getType());
-
 
         Map<String, String> map = gson.fromJson(gson.toJson(o), new TypeToken<Map<String, String>>() {
         }.getType());

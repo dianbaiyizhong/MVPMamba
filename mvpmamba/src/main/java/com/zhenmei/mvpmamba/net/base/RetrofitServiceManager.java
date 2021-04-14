@@ -24,12 +24,12 @@ import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class RetrofitServiceManager {
-    private static final int DEFAULT_TIME_OUT = 10;//超时时间 5s
+    private static final int DEFAULT_TIME_OUT = 10;
     private static final int DEFAULT_READ_TIME_OUT = 10;
     private Retrofit mRetrofit;
     private static final ArrayList<Interceptor> INTERCEPTORS = ManBaNetBuilder.getConfiguration(ConfigKeys.INTERCEPTOR);
@@ -56,9 +56,8 @@ public class RetrofitServiceManager {
 
 
         // 创建 OKHttpClient
-        // OkHttpClient.Builder builder = new OkHttpClient.Builder();
         OkHttpClient.Builder builder = RetrofitUrlManager.getInstance().with(new OkHttpClient.Builder());
-        //配置ssl
+        // 配置ssl
         builder.sslSocketFactory(sslContext.getSocketFactory(), trustManager)
                 .hostnameVerifier((hostname, session) -> true);
 
@@ -89,7 +88,7 @@ public class RetrofitServiceManager {
         // 创建Retrofit
         mRetrofit = new Retrofit.Builder()
                 .client(builder.build())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gsonBuilder.create()))
                 .baseUrl(BASE_URL)
                 .build();
@@ -112,7 +111,6 @@ public class RetrofitServiceManager {
      * @return
      */
     public static RetrofitServiceManager getInstance() {
-
 
         return SingletonHolder.INSTANCE;
     }

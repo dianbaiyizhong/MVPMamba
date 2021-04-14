@@ -10,7 +10,7 @@ import com.zhenmei.mvpmamba.demo.R;
 import com.zhenmei.mvpmamba.errorhandle.ExceptionHandle;
 
 /**
- * 在这里对错误进行统一处理
+ * 在这里对异常信息进行统一处理
  */
 public abstract class MambaSecondHandleSubscriber<T> extends MambaFirstHandlerSubscriber<T> {
     private Context context;
@@ -24,13 +24,11 @@ public abstract class MambaSecondHandleSubscriber<T> extends MambaFirstHandlerSu
 
     }
 
+
     @Override
-    public void onP7IError(MambaServiceFault fault) {
+    public void onSystemError(MambaServiceFault fault) {
         if (fault.getErrorCode() == 401001) {
-
             //注销操作
-
-
         }
         if (showBySnack()) {
             Activity activity = ActivityUtils.getActivityByContext(context);
@@ -41,9 +39,10 @@ public abstract class MambaSecondHandleSubscriber<T> extends MambaFirstHandlerSu
 
 
     @Override
-    public void onP7IErrorMessage(String clientMessage) {
+    public void onErrorTip(String clientMessage) {
 
     }
+
 
     @Override
     public void onNetError(Throwable e) {

@@ -18,7 +18,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
 
 public class SSLUtils {
-    private final static String TAG = "p7i";
+    private final static String TAG = "mamba";
 
     private static KeyStore getKeyStore(String fileName) {
         KeyStore keyStore = null;

@@ -19,12 +19,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import okio.Buffer;
 
-/**
- *
- * OkHttp 公共参数拦截器
- * from: https://github.com/jkyeo/okhttp-basicparamsinterceptor.git
- * Created by zhouwei on 16/11/10.
- */
+
 
 public class BasicParamsInterceptor implements Interceptor {
 

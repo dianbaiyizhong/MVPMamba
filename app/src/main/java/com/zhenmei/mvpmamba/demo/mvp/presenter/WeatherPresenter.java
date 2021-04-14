@@ -12,8 +12,8 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class WeatherPresenter extends BasePresenter<WeatherContract.Model, WeatherContract.MView> {
 
@@ -28,7 +28,6 @@ public class WeatherPresenter extends BasePresenter<WeatherContract.Model, Weath
         Map<String, String> paramMap = new HashMap<>();
         paramMap.put("city", "北京");
 
-
         mModel.getWeather(paramMap)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -39,15 +38,11 @@ public class WeatherPresenter extends BasePresenter<WeatherContract.Model, Weath
                         Logger.i(subject.toString() + "");
                         mView.loadSuccess();
                     }
-
-
                     @Override
                     public void onError(Throwable e) {
                         e.printStackTrace();
                         Logger.e("报错了:" + e.getMessage() + "");
                         super.onError(e);
-
-
                         mView.loadError();
                     }
                 });

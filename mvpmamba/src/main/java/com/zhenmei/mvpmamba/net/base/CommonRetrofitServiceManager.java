@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CommonRetrofitServiceManager {
@@ -31,7 +31,7 @@ public class CommonRetrofitServiceManager {
                 .client(okHttpClient)//设置使用okhttp网络请求
                 .baseUrl(BASE_URL)//设置服务器路径
                 .addConverterFactory(GsonConverterFactory.create())//添加转化库，默认是Gson
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//添加回调库，采用RxJava
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())//添加回调库，采用RxJava
                 .build();
 
     }

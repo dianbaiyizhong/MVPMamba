@@ -21,18 +21,18 @@ import android.os.Bundle;
 
 import androidx.fragment.app.FragmentActivity;
 
-import com.trello.rxlifecycle2.RxLifecycle;
-import com.trello.rxlifecycle2.android.ActivityEvent;
+
+import com.trello.rxlifecycle4.android.ActivityEvent;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import dagger.Lazy;
-import io.reactivex.subjects.Subject;
+import io.reactivex.rxjava3.subjects.Subject;
 
 /**
  * ================================================
- * 配合 {@link ActivityLifecycleable} 使用,使 {@link Activity} 具有 {@link RxLifecycle} 的特性
+ * 配合 {@link ActivityLifeCycleAble} 使用,使 {@link Activity} 具有 {@link RxLifecycle} 的特性
  * <p>
  * Created by JessYan on 25/08/2017 18:56
  * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
@@ -54,7 +54,7 @@ public class ActivityLifecycleForRxLifecycle implements Application.ActivityLife
      */
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-        if (activity instanceof ActivityLifecycleable) {
+        if (activity instanceof ActivityLifeCycleAble) {
             obtainSubject(activity).onNext(ActivityEvent.CREATE);
             if (activity instanceof FragmentActivity) {
                 ((FragmentActivity) activity).getSupportFragmentManager().registerFragmentLifecycleCallbacks(mFragmentLifecycle.get(), true);
@@ -64,28 +64,28 @@ public class ActivityLifecycleForRxLifecycle implements Application.ActivityLife
 
     @Override
     public void onActivityStarted(Activity activity) {
-        if (activity instanceof ActivityLifecycleable) {
+        if (activity instanceof ActivityLifeCycleAble) {
             obtainSubject(activity).onNext(ActivityEvent.START);
         }
     }
 
     @Override
     public void onActivityResumed(Activity activity) {
-        if (activity instanceof ActivityLifecycleable) {
+        if (activity instanceof ActivityLifeCycleAble) {
             obtainSubject(activity).onNext(ActivityEvent.RESUME);
         }
     }
 
     @Override
     public void onActivityPaused(Activity activity) {
-        if (activity instanceof ActivityLifecycleable) {
+        if (activity instanceof ActivityLifeCycleAble) {
             obtainSubject(activity).onNext(ActivityEvent.PAUSE);
         }
     }
 
     @Override
     public void onActivityStopped(Activity activity) {
-        if (activity instanceof ActivityLifecycleable) {
+        if (activity instanceof ActivityLifeCycleAble) {
             obtainSubject(activity).onNext(ActivityEvent.STOP);
         }
     }
@@ -97,7 +97,7 @@ public class ActivityLifecycleForRxLifecycle implements Application.ActivityLife
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-        if (activity instanceof ActivityLifecycleable) {
+        if (activity instanceof ActivityLifeCycleAble) {
             obtainSubject(activity).onNext(ActivityEvent.DESTROY);
         }
     }
@@ -108,6 +108,6 @@ public class ActivityLifecycleForRxLifecycle implements Application.ActivityLife
      * @see <a href="https://mcxiaoke.gitbooks.io/rxdocs/content/Subject.html">BehaviorSubject 官方中文文档</a>
      */
     private Subject<ActivityEvent> obtainSubject(Activity activity) {
-        return ((ActivityLifecycleable) activity).provideLifecycleSubject();
+        return ((ActivityLifeCycleAble) activity).provideLifecycleSubject();
     }
 }

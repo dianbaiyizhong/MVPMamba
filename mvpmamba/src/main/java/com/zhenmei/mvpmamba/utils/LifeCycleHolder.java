@@ -9,7 +9,7 @@ import androidx.lifecycle.OnLifecycleEvent;
 public class LifeCycleHolder<T> implements LifecycleObserver {
 
     protected T obj;
-    private Callback<T> callbak;
+    private Callback<T> callback;
 
     public static <T> LifeCycleHolder<T> empty() {
         return new LifeCycleHolder<>(null, null);
@@ -26,58 +26,58 @@ public class LifeCycleHolder<T> implements LifecycleObserver {
 
     private LifeCycleHolder(T obj, Callback<T> callback) {
         this.obj = obj;
-        this.callbak = callback;
+        this.callback = callback;
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public void onCreate() {
-        if (callbak != null) {
-            callbak.onCreate(obj);
+        if (callback != null) {
+            callback.onCreate(obj);
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public void onStart() {
-        if (callbak != null) {
-            callbak.onStart(obj);
+        if (callback != null) {
+            callback.onStart(obj);
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void onResume() {
-        if (callbak != null) {
-            callbak.onResume(obj);
+        if (callback != null) {
+            callback.onResume(obj);
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     public void onPause() {
-        if (callbak != null) {
-            callbak.onPause(obj);
+        if (callback != null) {
+            callback.onPause(obj);
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     public void onStop() {
-        if (callbak != null) {
-            callbak.onStop(obj);
+        if (callback != null) {
+            callback.onStop(obj);
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroy() {
-        if (callbak != null) {
-            callbak.onDestroy(obj);
+        if (callback != null) {
+            callback.onDestroy(obj);
         }
 
         obj = null;
-        callbak = null;
+        callback = null;
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
     public void onAny() {
-        if (callbak != null) {
-            callbak.onAny(obj);
+        if (callback != null) {
+            callback.onAny(obj);
         }
     }
 

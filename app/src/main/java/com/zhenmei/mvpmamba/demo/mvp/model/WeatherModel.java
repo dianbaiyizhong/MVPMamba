@@ -8,7 +8,7 @@ import com.zhenmei.mvpmamba.demo.mvp.model.api.service.WeatherService;
 
 import java.util.Map;
 
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.core.Observable;
 
 public class WeatherModel extends BaseModel implements WeatherContract.Model {
 
