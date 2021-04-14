@@ -1,14 +1,26 @@
 # MVPMamba
+
 ## 一个整合dagger2+MVP架构+Retrofit2网络请求+RxJava的库（androidx）
 
-
 ## 我的环境
-android studio 4.0.1 + gradle-5.6.4
+
+android studio 4.1.3 + gradle-6.5
+
+## 第三方库版本
+
+| 依赖库 | 版本号 |
+| --- | --- | 
+|RxAndroid   | 3.0.0 | 
+|RxPermission | 0.10.2 |
+|dagger2| 0.10.2 |
+|rxlifecycle| 4.0.2 |
+|retrofit2| 2.9.0 |
 
 
 [![](https://www.jitpack.io/v/huanghaoming/MVPMamba.svg)](https://www.jitpack.io/#huanghaoming/MVPMamba)
 
 ### 推荐使用理由：
+
 **1.使用Rx方式通过Retrofit进行网络请求，并直接封装解决内存泄漏问题** <br/>
 **2.也整合了RxCache的缓存使用**<br/>
 **3.也支持多个baseUrl的请求源**<br/>
@@ -18,26 +30,30 @@ android studio 4.0.1 + gradle-5.6.4
 **7.不需要每个activity都要写注入，直接使用基类统一注入**<br/>
 
 ### 先确认一个小需求
+
 请求得到天气的数据，以下是一个请求天气的api接口
 
 http://wthrcdn.etouch.cn/weather_mini?city=北京
 
 我们通过这个作为案例，来实现整合一个demo
 
-
 ### 整合步骤（一步一步按照顺序照抄即可）
+
 导入库
+
 ```groovy
-implementation 'com.github.huanghaoming:MVPMamba:1.x'
+implementation 'com.github.huanghaoming:MVPMamba:2.0'
 ```
 
 除此之外，还要有
+
 ```groovy
-annotationProcessor 'com.google.dagger:dagger-compiler:2.28.3'
-annotationProcessor 'com.google.dagger:dagger-android-processor:2.28.3'
+annotationProcessor 'com.google.dagger:dagger-compiler:2.34'
+annotationProcessor 'com.google.dagger:dagger-android-processor:2.34'
 ```
 
 编写自己的Application类，继承MVPApplication
+
 ```java
 public class BaseApplication extends MVPApplication {
 
@@ -64,11 +80,11 @@ public class BaseApplication extends MVPApplication {
 	}
 }
 ```
+
 > 注：DaggerAppComponent这个类需要工程编译生成，目前代码是变红的，可以先放一放，继续下面步骤
 
-
-
 我们先看看数据格式
+
 ```json
 {
   "data": {
@@ -143,8 +159,8 @@ public class BaseResponse<T> implements Serializable {
         return status == 1000;
     }
 }
-
 ```
+
 编写网络请求service部分
 
 ```java
@@ -157,8 +173,8 @@ public interface WeatherService {
 }
 ```
 
-
 接着，在这里，我们用到RxJava写一个统一处理类PayLoad，作为网络请求时统一处理
+
 ```java
 public class PayLoad<T> implements Function<BaseResponse<T>, T> {
 
@@ -172,10 +188,10 @@ public class PayLoad<T> implements Function<BaseResponse<T>, T> {
         return tBaseResponse.data;
     }
 }
-
 ```
 
 接下来，写一个天气数据的类，这个没问题吧（get和set方法省略了）
+
 ```java
 public class WeatherEntity {
     private String wendu;
@@ -183,7 +199,6 @@ public class WeatherEntity {
     private String city;
 }
 ```
-
 
 编写Model和View两个类，网上的大佬将两者写到了一个类（contract）里，为的是省事
 
@@ -198,7 +213,9 @@ public interface WeatherContract {
     }
 }
 ```
+
 编写model的实现类(同时在这里通过map方法，传入PayLoad处理，使用了Rx特性，一些数据缓存等操作也可以在这里写)
+
 ```java
 public class WeatherModel extends BaseModel implements WeatherContract.Model {
 
@@ -209,8 +226,8 @@ public class WeatherModel extends BaseModel implements WeatherContract.Model {
 }
 ```
 
-
 编写presenter类
+
 ```java
 public class WeatherPresenter extends BasePresenter<WeatherContract.Model, WeatherContract.MView> {
 
@@ -247,11 +264,10 @@ public class WeatherPresenter extends BasePresenter<WeatherContract.Model, Weath
 
 
 }
-
 ```
 
-
 编写activity的基类，作用是dagger只注入一次，不用每个activity都写（一定要，一切为了dagger2的注入，对着抄就好）
+
 ```java
 public abstract class MyBaseActivity<P extends BasePresenter> extends FMVPActivity {
 
@@ -272,6 +288,7 @@ public abstract class MyBaseActivity<P extends BasePresenter> extends FMVPActivi
     }
 }
 ```
+
 终于开始写Activity类
 
 ```java
@@ -306,10 +323,9 @@ public class WeatherActivity extends MyBaseActivity<WeatherPresenter> implements
 }
 ```
 
-
-
 接下来是收拾dagger的摊子
 编写ActivityModule类，注入Model
+
 ```java
 @Module
 public class ActivityModule {
@@ -324,8 +340,8 @@ public class ActivityModule {
 }
 ```
 
-
 编写BuildersModule类，注入activity或者fragment
+
 ```java
 @Module
 public abstract class BuildersModule {
@@ -335,7 +351,6 @@ public abstract class BuildersModule {
 
 }
 ```
-
 
 编写AppComponent类，照抄就可以（自己写的Application要在这里用到了）
 
@@ -362,23 +377,17 @@ public interface AppComponent {
 ```
 
 最后一步，需要在清单文件加上一句话（这个跟框架没关系。是android 9后网络请求的配置问题）
+
 ```
 android:networkSecurityConfig="@xml/network_security_config"
 ```
 
-
 ### 以上是代码部分，接下来，make一下工程，就可以了（希望你们没有报错）
 
-
-
-
-
-------------
-
-
-
+---
 
 ### 扩展用法：
+
 自定义请求拦截器（如token）：
 
 ```java
@@ -403,21 +412,13 @@ public class TokenInterceptor implements Interceptor {
 ```
 
 ```java
-        ManBaNetBuilder.init(this)
+ManBaNetBuilder.init(this)
                 .withApiHost("http://wthrcdn.etouch.cn/")
                 .withInterceptor(new TokenInterceptor()) //这么使用
                 .configure();
 ```
 
-
-
-
 # 鸣谢
+
 https://github.com/JessYanCoding
-
-
-
-
-
-
 
