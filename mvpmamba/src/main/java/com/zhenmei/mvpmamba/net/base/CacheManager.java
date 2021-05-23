@@ -2,18 +2,32 @@ package com.zhenmei.mvpmamba.net.base;
 
 import android.content.Context;
 
-import java.io.File;
+import com.zchu.rxcache.RxCache;
+import com.zchu.rxcache.diskconverter.GsonDiskConverter;
 
-import io.rx_cache2.internal.RxCache;
-import io.victoralbertos.jolyglot.GsonSpeaker;
+import java.io.File;
 
 public class CacheManager {
 
     private Context context;
 
+    public RxCache getRxCache() {
+        return rxCache;
+    }
+
+    private RxCache rxCache;
+
     public void init(Context context) {
 
         this.context = context;
+
+        rxCache =  new RxCache.Builder()
+                .appVersion(1) //当版本号改变,缓存路径下存储的所有数据都会被清除掉
+                .diskDir(new File(getCacheDir().getPath() + File.separator + "data-cache"))
+                .diskConverter(new GsonDiskConverter())
+                .memoryMax(2*1024*1024)
+                .diskMax(20*1024*1024)
+                .build();
 
     }
 
@@ -30,10 +44,13 @@ public class CacheManager {
      * @return
      */
     public <T> T create(Class<T> service) {
-        return new RxCache.Builder()
-                //.useExpiredDataIfLoaderNotAvailable(true)
-                .persistence(getCacheDir(), new GsonSpeaker())
-                .using(service);
+//        return new RxCache.Builder()
+//                //.useExpiredDataIfLoaderNotAvailable(true)
+//                .persistence(getCacheDir(), new GsonSpeaker())
+//                .using(service);
+
+
+        return null;
     }
 
 

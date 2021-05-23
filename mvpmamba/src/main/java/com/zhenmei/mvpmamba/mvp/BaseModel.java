@@ -1,7 +1,7 @@
 package com.zhenmei.mvpmamba.mvp;
 
+import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.zhenmei.mvpmamba.net.base.RetrofitServiceManager;
 
 import java.util.Collections;
@@ -21,7 +21,6 @@ public class BaseModel {
 
     protected static Map<String, String> bean2Map(Object o) {
         Gson gson = new Gson();
-
         Map<String, String> map = gson.fromJson(gson.toJson(o), new TypeToken<Map<String, String>>() {
         }.getType());
         if (map == null) {

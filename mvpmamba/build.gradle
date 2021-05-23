@@ -43,6 +43,8 @@ android {
 dependencies {
 
     implementation rootProject.ext.dependencies["appcompat"]
+    implementation rootProject.ext.dependencies["gson"]
+    implementation rootProject.ext.dependencies["guava"]
 
     api rootProject.ext.dependencies["retrofit"]
     api rootProject.ext.dependencies["rxandroid"]
@@ -63,13 +65,8 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["dagger-android-processor"]
 
 
-    implementation ('com.github.VictorAlbertos.Jolyglot:gson:0.0.4'){
-        exclude group: 'io.reactivex.rxjava2'
-    }
 
-    api('com.github.VictorAlbertos.RxCache:runtime:1.8.3-2.x') {
-        exclude group: 'org.glassfish'
-    }
+    api 'com.github.z-chu.RxCache:rxcache:3.0.0'
 
     implementation ('me.jessyan:retrofit-url-manager:1.4.0')
 

@@ -11,6 +11,7 @@ import com.orhanobut.logger.PrettyFormatStrategy;
 import com.zhenmei.mvpmamba.app.MVPApplication;
 import com.zhenmei.mvpmamba.app.ManBaNetBuilder;
 import com.zhenmei.mvpmamba.demo.di.DaggerAppComponent;
+import com.zhenmei.mvpmamba.net.base.CacheManager;
 
 /**
  * 请按照这个类，扩展自己的Application类
@@ -28,6 +29,7 @@ public class BaseApplication extends MVPApplication {
 
         super.onCreate();
 
+        CacheManager.getInstance().init(getApplicationContext());
 
 
         /**
