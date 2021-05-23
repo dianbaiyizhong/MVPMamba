@@ -4,8 +4,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':mvpmamba-annotation')
 
-    compileOnly 'com.google.auto.service:auto-service:1.0-rc4'
-    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc4'
+    compileOnly 'com.google.auto.service:auto-service:1.0'
+    annotationProcessor 'com.google.auto.service:auto-service:1.0'
 }
 
 // java控制台输出中文乱码

@@ -5,8 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.zhenmei.mvpmamba.di.AndroidInjection;
-import com.zhenmei.mvpmamba.mvp.IView;
 import com.zhenmei.mvpmamba.mvp.BasePresenter;
+import com.zhenmei.mvpmamba.mvp.IView;
 
 public abstract class FMVPActivity<P extends BasePresenter> extends LifecycleActivity implements IView {
 
@@ -19,4 +19,5 @@ public abstract class FMVPActivity<P extends BasePresenter> extends LifecycleAct
         }
         super.onCreate(savedInstanceState);
     }
+
 }

@@ -3,19 +3,13 @@ package com.zhenmei.mvpmamba.fragment;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 
-import com.trello.rxlifecycle4.android.FragmentEvent;
+import com.trello.rxlifecycle4.components.support.RxFragment;
 import com.zhenmei.mvpmamba.di.AndroidInjection;
-import com.zhenmei.mvpmamba.integration.lifecycle.FragmentLifeCycleAble;
 import com.zhenmei.mvpmamba.mvp.IView;
 
-import io.reactivex.rxjava3.subjects.BehaviorSubject;
-import io.reactivex.rxjava3.subjects.Subject;
 
-
-public abstract class FMVPFragment extends Fragment implements FragmentLifeCycleAble, IView {
-    private final BehaviorSubject<FragmentEvent> mLifecycleSubject = BehaviorSubject.create();
+public abstract class FMVPFragment extends RxFragment implements  IView {
 
 
     protected abstract boolean enableInject();
@@ -30,9 +24,4 @@ public abstract class FMVPFragment extends Fragment implements FragmentLifeCycle
     }
 
 
-    @NonNull
-    @Override
-    public Subject<FragmentEvent> provideLifecycleSubject() {
-        return mLifecycleSubject;
-    }
 }

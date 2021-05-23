@@ -2,16 +2,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.zhenmei.mvpmamba"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
@@ -29,7 +28,7 @@ android {
             signingConfig signingConfigs.release
         }
         debug {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
@@ -39,6 +38,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
 
     }
+
 }
 
 dependencies {
@@ -51,12 +51,14 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation project(':mvpmamba')
+//    implementation 'com.github.huanghaoming:MVPMamba:2.0'
+
     implementation project(':mvpmamba-annotation')
     annotationProcessor project(':mvpmamba-compiler')
 
     implementation rootProject.ext.dependencies["material"]
 
-//    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
+    implementation 'com.bytedance.boost_multidex:boost_multidex:1.0.1'
 
 
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
@@ -68,11 +70,23 @@ dependencies {
 
     implementation rootProject.ext.dependencies["logger"]
 
-    implementation rootProject.ext.dependencies["eventbus"]
 
 
     implementation rootProject.ext.dependencies["utilcodex"]
 
     implementation rootProject.ext.dependencies["fastjson"]
+
+
+}
+// 修改代码直接run的时候会奔溃，因此每次都删除build目录
+task cleanApk(type: Delete) {
+    String path = projectDir.getAbsoluteFile().toString() + File.separator + "build" + File.separator;
+
+
+    File file = new File(path)
+    if (file.exists()) {
+        println("delete build:" + path)
+        file.deleteDir()
+    }
 
 }

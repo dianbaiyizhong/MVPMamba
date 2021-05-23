@@ -15,4 +15,7 @@ public interface WeatherService {
     @GET("/weather_mini")
     Observable<BaseResponse<WeatherEntity>> getList(@QueryMap Map<String, String> map);
 
+    @GET("http://192.168.68.201:2408/deviceInfo/list")
+    Observable<BaseResponse<WeatherEntity>> test(@QueryMap Map<String, String> map);
+
 }

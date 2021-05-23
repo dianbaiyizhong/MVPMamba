@@ -13,12 +13,12 @@ uploadArchives {
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -37,11 +37,6 @@ android {
     }
 
 
-    repositories {
-        flatDir {
-            dirs 'libs'
-        }
-    }
 
 }
 
@@ -49,7 +44,7 @@ dependencies {
 
     implementation rootProject.ext.dependencies["appcompat"]
 
-    api ('com.squareup.retrofit2:retrofit:2.9.0')
+    api rootProject.ext.dependencies["retrofit"]
     api rootProject.ext.dependencies["rxandroid"]
     api ('com.squareup.retrofit2:converter-gson:2.9.0')
     api 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
@@ -58,14 +53,12 @@ dependencies {
     api ('com.trello.rxlifecycle4:rxlifecycle:4.0.2')
     api ('com.trello.rxlifecycle4:rxlifecycle-android:4.0.2')
     api ('com.trello.rxlifecycle4:rxlifecycle-components:4.0.2')
-
     api ('me.jessyan:rxerrorhandler:2.1.1')
 
 
     api rootProject.ext.dependencies["dagger"]
     api rootProject.ext.dependencies["dagger-android"]
     api rootProject.ext.dependencies["dagger-android-support"]
-
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
     annotationProcessor rootProject.ext.dependencies["dagger-android-processor"]
 

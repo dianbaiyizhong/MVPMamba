@@ -19,12 +19,12 @@ public class MVPApplication extends Application implements HasAndroidInjector {
     @Override
     public void onCreate() {
         super.onCreate();
-        RxJavaPlugins.setErrorHandler(new Consumer<Throwable>() {
-            @Override
-            public void accept(Throwable throwable) throws Exception {
-                throwable.printStackTrace();
-            }
-        });
+//        RxJavaPlugins.setErrorHandler(new Consumer<Throwable>() {
+//            @Override
+//            public void accept(Throwable throwable) throws Exception {
+//                throwable.printStackTrace();
+//            }
+//        });
 
 
 

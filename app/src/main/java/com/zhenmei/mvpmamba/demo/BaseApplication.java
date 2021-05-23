@@ -1,5 +1,9 @@
 package com.zhenmei.mvpmamba.demo;
 
+import android.content.Context;
+
+
+import com.bytedance.boost_multidex.BoostMultiDex;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
@@ -13,10 +17,17 @@ import com.zhenmei.mvpmamba.demo.di.DaggerAppComponent;
  */
 public class BaseApplication extends MVPApplication {
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        BoostMultiDex.install(base);
 
+    }
     @Override
     public void onCreate() {
+
         super.onCreate();
+
 
 
         /**
