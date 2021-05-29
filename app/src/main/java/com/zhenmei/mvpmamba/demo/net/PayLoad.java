@@ -13,7 +13,7 @@ public class PayLoad<T> implements Function<BaseResponse<T>, T> {
     public T apply(BaseResponse<T> response) {
 
         if (!response.isSuccess()) {
-            throw new MambaServiceFault(response.status, response.desc, response.exData);
+            throw new MambaBusinessException(response.status, response.desc, response.exData);
         }
         return response.data;
     }

@@ -1,14 +1,12 @@
 package com.zhenmei.mvpmamba.demo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.FragmentUtils;
 import com.google.android.material.button.MaterialButton;
-import com.orhanobut.logger.Logger;
 import com.zhenmei.mvpmamba.demo.mvp.view.WeatherActivity;
 import com.zhenmei.mvpmamba.demo.mvp.view.WeatherFragment;
 

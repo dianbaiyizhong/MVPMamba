@@ -9,9 +9,8 @@ import com.zhenmei.mvpmamba.errorhandle.BaseErrorHandleSubscriber;
 
 /**
  * 第一层剥离，将异常分为
- * 1，系统异常
- * 2，正常的错误提醒异常
- * 3，状态码异常
+ * 1，业务异常
+ * 2，状态码异常
  */
 public abstract class MambaFirstHandlerSubscriber<T> extends BaseErrorHandleSubscriber<T> {
     private Context context;
@@ -21,11 +20,9 @@ public abstract class MambaFirstHandlerSubscriber<T> extends BaseErrorHandleSubs
         this.context = context;
     }
 
-    // 系统异常
-    public abstract void onSystemError(MambaServiceFault fault);
 
     // 正常的错误提醒异常
-    public abstract void onErrorTip(String clientMessage);
+    public abstract void onErrorTip(int code, String clientMessage);
 
     // 网络异常
     public abstract void onNetError(Throwable fault);
@@ -36,13 +33,14 @@ public abstract class MambaFirstHandlerSubscriber<T> extends BaseErrorHandleSubs
         Logger.e("MambaFirstHandlerSubscriber onError", e);
 
         // 判断是否为后台返回的正常异常信息
-        if (e instanceof MambaServiceFault) {
-            MambaServiceFault fault = (MambaServiceFault) e;
+        if (e instanceof MambaBusinessException) {
+            MambaBusinessException fault = (MambaBusinessException) e;
             String clientInfo = JSON.parseObject(JSON.toJSONString(fault.getResponseData())).getString("clientInfo");
             if (!StringUtils.isEmpty(clientInfo)) {
-                onErrorTip(clientInfo);
+                onErrorTip(fault.getErrorCode(), clientInfo);
+            } else {
+                onErrorTip(fault.getErrorCode(), "未知错误");
             }
-            onSystemError(fault);
         } else {
             // 否则当网络异常处理
             onNetError(e);
